@@ -1,0 +1,2 @@
+class ThisappController < ApplicationController
+end
