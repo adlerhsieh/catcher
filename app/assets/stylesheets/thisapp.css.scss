@@ -43,16 +43,19 @@ body {
 	background-image: image-url("pause.png");
 }
 
-.correct_answer {
-
+.back-to-menu {
+	position: absolute;
+	display: none;
+	width: 150px;
+	height: 45px;
+	margin-top: 260px;
+	z-index: 5;
 }
 
 .status-bar {
-	margin-left: auto;
-	margin-right: auto;
-	width: 600px;
-	height: 80px;
-	padding-top: 20px;
+	display: inline-block;
+	width: 150px;
+	height: 45px;
 	border-radius: 10px;
 	border: 1px solid black;
 	background-color: gray;
@@ -66,7 +69,7 @@ body {
 
 .time-bar {
 	display: inline-block;
-	width: 445px;
+	width: 340px;
 	height: 45px;
 	background-color: #04B431;
 	border-radius: 5px;
@@ -79,8 +82,6 @@ body {
 
 .right_answer {
 	z-index: 0;
-	background-color: red;
-	opacity: 0.5;
 	position: absolute;
 	width: 100px;
 	height: 100px;

@@ -16,15 +16,15 @@
 //= require_tree .
 var switch_id = 0;
 var current_opacity = 0;
-var counter = setInterval(timer, 30);
-var current_q_number = q1;
+var counter = clearInterval(timer);
+var current_q_number = 0;
+var revealing_speed = qs[current_q_number].revealing_speed;
 
 $(document).ready(function() {
 	$(".quiz-window-3").css('display', 'none');
 	position_windows() 
-	position_right_answer() ;
-	$(".right_answer").bind('click' , correct_answer);
-	$(".quiz-window-2").bind('click' , wrong_answer);
+	change_quiz()
+	//$(".right_answer").css('opacity' , 0.5 );
 });
 
 $(window).resize(function(){
