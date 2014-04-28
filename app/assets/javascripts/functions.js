@@ -1,6 +1,6 @@
 //正確答案播放音效&動畫
 function correct_answer() {
-	//show_mouse_position();
+	$(".quiz-window-2").css('opacity', 1);
 	$(".right_answer").unbind('click' , correct_answer);
 	$(".quiz-window-2").unbind('click' , wrong_answer);
 	$('.correct').css("display", "block");
@@ -51,16 +51,20 @@ function timer() {
 };
 
 function position_windows() {
-	$(".quiz-window-2").css('marginLeft' , $(".quiz-window").css('marginLeft'));
-	$(".quiz-window-3").css('marginLeft' , $(".quiz-window").css('marginLeft'));
-	$(".correct").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 110);
-	$(".back-to-menu").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 225);
-	$(".wrong").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 150);
+	//change_marginLeft.setAttribute('margin-left','500px');
+	//$(".quiz-window-2").css('left' , parseInt($(".quiz-window").css('marginLeft')));
+	document.getElementById("quiz-window-1-id").style.marginLeft = $(window).width()/2 - $(".quiz-window").width()/2 + "px";
+	unit1 = parseInt(document.getElementById("quiz-window-1-id").style.marginLeft);
+	document.getElementById("quiz-window-2-id").style.marginLeft = unit1  + "px";
+	document.getElementById("quiz-window-3-id").style.marginLeft = unit1  + "px";
+	//$(".quiz-window-3").css('left' , parseInt($(".quiz-window").css('marginLeft')));
+	document.getElementById("correct-id").style.marginLeft = unit1 + 110  + "px";
+	//$(".correct").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 110);
+	document.getElementById("back-to-menu-id").style.marginLeft = unit1 + 225  + "px";
+	//$(".back-to-menu").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 225);
+	document.getElementById("wrong-id").style.marginLeft = unit1 + 150  + "px";
+	//$(".wrong").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 150);
 }
-
-function test() {
-	document.write("123");
-};
 
 //按下暫停按鈕，切換按鈕顏色，佈景顏色，停止棒條
 function pause_switch() {

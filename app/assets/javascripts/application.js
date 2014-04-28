@@ -19,16 +19,18 @@ var current_opacity = 0;
 var counter = clearInterval(timer);
 var current_q_number = 0;
 var revealing_speed = qs[current_q_number].revealing_speed;
+var change = 0;
+var unit1 = "";
 
 $(document).ready(function() {
 	$(".quiz-window-3").css('display', 'none');
-	position_windows() 
-	change_quiz()
+	position_windows();
+	change_quiz();
 	//$(".right_answer").css('opacity' , 0.5 );
 });
 
 $(window).resize(function(){
-	position_windows() 
+	position_windows();
 	position_right_answer() ;
 });
 

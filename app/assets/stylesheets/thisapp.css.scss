@@ -14,8 +14,6 @@ body {
 
 .quiz-window {
 	z-index: 5;
-	margin-left: auto;
-	margin-right: auto;
 	width: 600px;
 	height: 400px;
 	border: 1px solid black;
@@ -25,15 +23,18 @@ body {
 
 .quiz-window-2 {
 	position: absolute;
+	display: block;
 	width: 600px;
 	height: 400px;
 	border-radius: 10px;
 	opacity: 0;
 	background-image: image-url("1-2.png");
+	//background-color: blue;
 }
 
 .quiz-window-3 {
 	z-index: 3;
+	display: block;
 	position: absolute;
 	margin-top: -400px;
 	width: 600px;
@@ -85,6 +86,8 @@ body {
 	position: absolute;
 	width: 100px;
 	height: 100px;
+	//background-color: red;
+	//opacity: 0.5;
 }
 
 .correct {
