@@ -28,7 +28,7 @@ function time_up() {
 	clearInterval(counter);
 	$('#pause').attr('disabled', true);
 	$('.time-bar').animate({width: "340px"}, 800);
-	change_quiz()		
+	setTimeout(function(){change_quiz()}, 1000);			
 };
 
 function position_right_answer() {
@@ -51,19 +51,18 @@ function timer() {
 };
 
 function position_windows() {
-	//change_marginLeft.setAttribute('margin-left','500px');
-	//$(".quiz-window-2").css('left' , parseInt($(".quiz-window").css('marginLeft')));
 	document.getElementById("quiz-window-1-id").style.marginLeft = $(window).width()/2 - $(".quiz-window").width()/2 + "px";
 	unit1 = parseInt(document.getElementById("quiz-window-1-id").style.marginLeft);
 	document.getElementById("quiz-window-2-id").style.marginLeft = unit1  + "px";
 	document.getElementById("quiz-window-3-id").style.marginLeft = unit1  + "px";
-	//$(".quiz-window-3").css('left' , parseInt($(".quiz-window").css('marginLeft')));
 	document.getElementById("correct-id").style.marginLeft = unit1 + 110  + "px";
-	//$(".correct").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 110);
 	document.getElementById("back-to-menu-id").style.marginLeft = unit1 + 225  + "px";
-	//$(".back-to-menu").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 225);
 	document.getElementById("wrong-id").style.marginLeft = unit1 + 150  + "px";
 	//$(".wrong").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 150);
+	//$(".back-to-menu").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 225);
+	//$(".correct").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 110);
+	//$(".quiz-window-3").css('left' , parseInt($(".quiz-window").css('marginLeft')));
+	//$(".quiz-window-2").css('left' , parseInt($(".quiz-window").css('marginLeft')));	
 }
 
 //按下暫停按鈕，切換按鈕顏色，佈景顏色，停止棒條

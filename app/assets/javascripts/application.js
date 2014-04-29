@@ -23,10 +23,20 @@ var change = 0;
 var unit1 = "";
 
 $(document).ready(function() {
-	$(".quiz-window-3").css('display', 'none');
-	position_windows();
-	change_quiz();
+	//index page avtive script is in the html page
 	//$(".right_answer").css('opacity' , 0.5 );
+	$("#user_profile").click(function(){
+		if (!$(this).hasClass("active")) {
+			$(this).toggleClass("active");
+			$("#game_process").removeClass("active");
+		};
+	});
+	$("#game_process").click(function(){
+		if (!$(this).hasClass("active")) {
+			$(this).toggleClass("active");
+			$("#user_profile").removeClass("active");
+		};
+	});
 });
 
 $(window).resize(function(){
