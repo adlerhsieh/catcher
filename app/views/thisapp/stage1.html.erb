@@ -12,7 +12,9 @@
 <div class="divider">
 	<div id="pause" class="btn btn-primary btn-lg" style="width:100px; display: static;" onclick="pause_switch()">暫停</div>  	<span class="status-bar"><p style="position: absolute; font-size: 20px; padding-top: 7px; padding-left: 30px" id="stage1_score">得分：0</p></span>   <span class="time-bar"></span>
 </div>
-
+<% if !current_user %>
+<p style="text-align:center; color: red">Notice: Progress will not be saved if not logged in. <%= link_to "Sign in", sign_in_path %> or <%= link_to "Sign up", sign_up_path %></p>
+<% end %>
 </div>
 
 <script>
