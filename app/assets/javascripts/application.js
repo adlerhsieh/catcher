@@ -43,6 +43,16 @@ $(document).ready(function() {
 			$(".frame_game").css("display", "block");
 		};
 	});
+
+	$(".stage_1_button").hover(function(){
+		$(this).toggleClass('lower_opacity');
+	});
+	$(".stage_2_button").hover(function(){
+		$(this).toggleClass('lower_opacity');
+	});
+	$(".stage_3_button").hover(function(){
+		$(this).toggleClass('lower_opacity');
+	});
 });
 
 $(window).resize(function(){

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'sign_up' => 'users#new', as: 'sign_up'
   get 'menu' => 'thisapp#menu', as: 'menu'
   get 'stage1' => 'thisapp#stage1', as: 'stage1'
-  get 'stage2' => 'thisapp#stage1', as: 'stage2'
-  get 'stage3' => 'thisapp#stage1', as: 'stage3'
+  get 'stage2' => 'thisapp#stage2', as: 'stage2'
+  get 'stage3' => 'thisapp#stage3', as: 'stage3'
   root to: "thisapp#menu"
   resources :users
   resources :sessions

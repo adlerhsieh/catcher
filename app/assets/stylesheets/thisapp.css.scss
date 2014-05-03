@@ -140,11 +140,49 @@ body {
 }
 
 .stage_1_button {
-	background-image: image-url("lock.png");
+	background-image: image-url("button_1.jpg");
 	width: 300px; 
 	height: 100px; 
 	border-radius: 10px; 
 	margin-left: auto; 
 	margin-right: auto;
 	padding-top: 20px;
+	border: solid 1px black;
+}
+
+.stage_2_button {
+	background-image: image-url("button_2.jpg");
+	width: 300px; 
+	height: 100px; 
+	border-radius: 10px; 
+	margin-left: auto; 
+	margin-right: auto;
+	padding-top: 20px;
+	border: solid 1px black;
+}
+
+.stage_3_button {
+	background-image: image-url("button_3.jpg");
+	width: 300px; 
+	height: 100px; 
+	border-radius: 10px; 
+	margin-left: auto; 
+	margin-right: auto;
+	padding-top: 20px;
+	border: solid 1px black;
+}
+
+.stage_lock_button {
+	background-image: image-url("lock.png");
+	width: 300px; 
+	height: 100px; 
+	border-radius: 10px; 
+	margin-left: auto; 
+	margin-right: auto;
+	display: float;
+	border: solid 1px black;
+}
+
+.lower_opacity {
+	opacity: 0.8;
 }

@@ -14,7 +14,8 @@
 				<p>總成績：</p>
 			<% else %>
 				<p>玩家：鬼才知道</p>
-				<p>總成績：鬼才知道</p>
+				<p>遊戲完成度：鬼才知道</p>
+				<p>遊戲玩法：從圖片中找到怪人的蹤跡</p>
 			<% end %>
 		</div>
 
@@ -22,11 +23,14 @@
 	
 	<div class="frame_game" id="frame_game_id">
 		<p style="padding-top: 20px"></p>
-		<div class="stage_1_button"></div>
+		<div class="stage_1_button" onclick="location.href='/stage1'"></div>
 		</p>
-		<div class="stage_1_button"></div>
+		<div class="stage_2_button" onclick="location.href='/stage2'"></div>
 		</p>
-		<div class="stage_1_button"></div>
+		<div class="stage_3_button" onclick="location.href='/stage3'"></div>
+		</p>
+		<div class="stage_lock_button" id="lock_stage_2"></div>
+		<div class="stage_lock_button" id="lock_stage_3"></div>
 
 
 
@@ -42,5 +46,7 @@
 $(document).ready(function() {
 		$(".frame_game").css("display", "none");
 		$("#user_profile").toggleClass("active");
+		$("#lock_stage_2").css("margin-top", -220);
+		$("#lock_stage_3").css("margin-top", 10);
 });
 </script>
