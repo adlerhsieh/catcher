@@ -46,7 +46,11 @@ function timer() {
 	//答案逐漸顯露出來
 	$(".quiz-window-2").animate({opacity: revealing_speed}, 0);
 	if ($(".time-bar").width() < 1) {
-		time_up()
+		if(current_q_number == 10){
+			correct_answer()
+		} else {
+			time_up()
+		}
 	} else {
 		$(".time-bar").css('opacity', 1);
 	};
@@ -99,7 +103,7 @@ function pause_switch() {
 		$('.quiz-window-2').css('opacity', current_opacity);
 		$(".quiz-window-3").css('display', 'none');
 		$(".back-to-menu").css('display', 'none');
-		counter = setInterval(timer, 30);
+		counter = setInterval(timer, 33);
 		switch_id = 0;
 	};
 };
@@ -114,7 +118,7 @@ function pause_switch() {
 //}
 
 function change_quiz() {
-	if (current_q_number < 3) {
+	if (current_q_number < 10) {
 		current_q_number = current_q_number + 1;
 		$('.quiz-window').css('background-image', qs[current_q_number].backgroundImage);
 		$('.quiz-window-2').css('background-image', qs[current_q_number].rightAnswer);
@@ -126,7 +130,7 @@ function change_quiz() {
 		$('.wrong').css("display", "none");
 		position_right_answer()
 		revealing_speed = qs[current_q_number].revealing_speed;
-		counter = setInterval(timer, 30);
+		counter = setInterval(timer, 33);
 	} else {
 		$('.quiz-window').css('opacity', '0');
 		$('.quiz-window-2').css('opacity', '0');
@@ -136,5 +140,6 @@ function change_quiz() {
 		$(".quiz-window-3").css('display', 'static');
 		$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
 		$(".back-to-menu").css('display', 'block');
+		
 	}
 }

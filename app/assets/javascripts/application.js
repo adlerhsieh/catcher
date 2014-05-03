@@ -53,6 +53,7 @@ $(document).ready(function() {
 	$(".stage_3_button").hover(function(){
 		$(this).toggleClass('lower_opacity');
 	});
+
 });
 
 $(window).resize(function(){

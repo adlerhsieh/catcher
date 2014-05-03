@@ -12,6 +12,7 @@
 			<% if current_user %>
 				<p>玩家：<%= current_user.name %></p>
 				<p>遊戲完成度：</p>
+				<p>Score: <%= current_user.stage1_score %></p>
 			<% else %>
 				<p>玩家：Unknown</p>
 				<p>遊戲完成度：Unknown</p>

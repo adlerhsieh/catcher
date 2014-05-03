@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	attr_accessor :password, :password_confirmation
 	before_save :password_digest
-	validates :name, presence: true, length: { minimum: 3 }
+	validates :name, presence: true, length: { minimum: 3 }, uniqueness: true
 	validates :password, length: { minimum: 3 }
 	validates :password_confirmation, presence: true
 	has_secure_password
