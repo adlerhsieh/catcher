@@ -21,6 +21,7 @@ var current_q_number = 0;
 var revealing_speed = qs[current_q_number].revealing_speed;
 var change = 0;
 var unit1 = "";
+var unit2 = "";
 
 $(document).ready(function() {
 	//index page avtive script is in the html page
@@ -29,12 +30,16 @@ $(document).ready(function() {
 		if (!$(this).hasClass("active")) {
 			$(this).toggleClass("active");
 			$("#game_process").removeClass("active");
+			$(".frame_game").css("display", "none");
+			$(".frame_profile").css("display", "block");
 		};
 	});
 	$("#game_process").click(function(){
 		if (!$(this).hasClass("active")) {
 			$(this).toggleClass("active");
 			$("#user_profile").removeClass("active");
+			$(".frame_profile").css("display", "none");
+			$(".frame_game").css("display", "block");
 		};
 	});
 });

@@ -1,0 +1,24 @@
+<div class="everything">
+
+<button class="back-to-menu btn btn-success btn-lg" id="back-to-menu-id">回主選單</button>
+<div class="quiz-window-2" id="quiz-window-2-id"></div>
+<div class="quiz-window" id="quiz-window-1-id"></div>
+<div class="quiz-window-3" id="quiz-window-3-id"></div>
+<div class="right_answer" id="right_answer-id"></div>
+<div class="correct" id="correct-id"></div>
+<div class="wrong" id="wrong-id"></div>
+</p>
+</p>
+<div class="divider">
+	<div id="pause" class="btn btn-primary btn-lg" style="width:100px; display: static;" onclick="pause_switch()">暫停</div>   <span class="status-bar"></span>   <span class="time-bar"></span>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+	$(".quiz-window-3").css('display', 'none');
+	position_windows();
+	change_quiz();
+});
+</script>

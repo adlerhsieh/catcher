@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-
-get 'menu' => 'thisapp#menu'
-root to: "thisapp#index"
+get 'menu' => 'thisapp#menu', as: 'menu'
+get 'stage1' => 'thisapp#stage1', as: 'stage1'
+root to: "thisapp#stage1"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

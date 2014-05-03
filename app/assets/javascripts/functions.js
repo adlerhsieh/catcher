@@ -63,6 +63,11 @@ function position_windows() {
 	//$(".correct").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 110);
 	//$(".quiz-window-3").css('left' , parseInt($(".quiz-window").css('marginLeft')));
 	//$(".quiz-window-2").css('left' , parseInt($(".quiz-window").css('marginLeft')));	
+	
+	//document.getElementById("menu_box_id").style.marginLeft = $(window).width()/2 - $(".menu_box").width()/2 + "px";
+	//unit2 = parseInt(document.getElementById("menu_box_id").style.marginLeft);
+	//document.getElementById("frame_game_id").style.marginLeft = unit1  + "px";
+	//document.getElementById("frame_game_id").style.marginLeft = unit1  + "px";
 }
 
 //按下暫停按鈕，切換按鈕顏色，佈景顏色，停止棒條
