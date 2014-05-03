@@ -1,0 +1,25 @@
+<div class="menu_box" id="menu_box_id">
+	<div style="padding-left: 50px; display: inline-block;">
+		<p style="padding-top: 30px; font-size: 30px;">註冊</p>
+		<%= form_for @user do |f| %>
+			<p><%= f.label "姓名" %></p><p><%= f.text_field :name %></p>
+			<p><%= f.label "密碼" %></p><p><%= f.password_field :password %></p>
+			<p><%= f.label "密碼確認" %></p><p><%= f.password_field :password_confirmation %></p>
+			<p><%= f.submit "註冊" %> | <%= link_to "我要登入", sign_in_path %> | <%= link_to "取消註冊", menu_path %></p>
+		<% end %>
+	</div>
+	<div style="position: absolute; margin-top: 100px; display: inline-block;">
+		<% if @user.errors.any? %>
+			<h4 style="padding-left: 30px;"><%= @user.errors.count %> 項錯誤</h4>
+			<ul>
+				<% @user.errors.full_messages.each do |f| %>
+					<li><%= f %></li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+
+</div>
+
+
+

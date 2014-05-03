@@ -1,6 +1,36 @@
 <div class="menu_box" id="menu_box_id">
-	<div class="frame_profile" id="frame_profile_id">profile</div>
-	<div class="frame_game" id="frame_game_id">game</div>
+	<div class="frame_profile" id="frame_profile_id">
+		<br />
+			<% if current_user %>
+				<p style="margin-left: 480px;"><%= link_to "登出", sign_out_path , :class => "btn btn-default" , :style => "width:100px;" %></p>
+			<% else %>
+				<p style="margin-left: 380px;"><%= link_to "註冊", sign_up_path , :class => "btn btn-primary btn-lg" , :style => "width:100px;" %> <%= link_to "登入", sign_in_path , :class => "btn btn-primary btn-lg" , :style => "width:100px;" %></p>
+			<% end %>
+			
+		<br />
+		<div style="padding-left:40px; font-size: 20px">
+			<% if current_user %>
+				<p>玩家：<%= current_user.name %></p>
+				<p>總成績：</p>
+			<% else %>
+				<p>玩家：鬼才知道</p>
+				<p>總成績：鬼才知道</p>
+			<% end %>
+		</div>
+
+	</div>
+	
+	<div class="frame_game" id="frame_game_id">
+		<p style="padding-top: 20px"></p>
+		<div class="stage_1_button"></div>
+		</p>
+		<div class="stage_1_button"></div>
+		</p>
+		<div class="stage_1_button"></div>
+
+
+
+	</div>
 </div>
 <div class="divider2">
 	</p>

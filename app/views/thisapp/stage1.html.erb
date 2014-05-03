@@ -1,6 +1,6 @@
 <div class="everything">
 
-<button class="back-to-menu btn btn-success btn-lg" id="back-to-menu-id">回主選單</button>
+<%= link_to "回主選單", menu_path, :class => "back-to-menu btn btn-success btn-lg", :id => "back-to-menu-id" %>
 <div class="quiz-window-2" id="quiz-window-2-id"></div>
 <div class="quiz-window" id="quiz-window-1-id"></div>
 <div class="quiz-window-3" id="quiz-window-3-id"></div>
@@ -10,7 +10,7 @@
 </p>
 </p>
 <div class="divider">
-	<div id="pause" class="btn btn-primary btn-lg" style="width:100px; display: static;" onclick="pause_switch()">暫停</div>   <span class="status-bar"></span>   <span class="time-bar"></span>
+	<div id="pause" class="btn btn-primary btn-lg" style="width:100px; display: static;" onclick="pause_switch()">暫停</div>  	<span class="status-bar"><p style="position: absolute; font-size: 20px; padding-top: 7px; padding-left: 30px" id="stage1_score">得分：0</p></span>   <span class="time-bar"></span>
 </div>
 
 </div>

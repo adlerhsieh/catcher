@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require_tree .
 var switch_id = 0;
 var current_opacity = 0;
@@ -20,6 +20,7 @@ var counter = clearInterval(timer);
 var current_q_number = 0;
 var revealing_speed = qs[current_q_number].revealing_speed;
 var change = 0;
+var stage1_scoring = 0;
 var unit1 = "";
 var unit2 = "";
 
