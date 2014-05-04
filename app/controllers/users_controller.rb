@@ -9,13 +9,28 @@ class UsersController < ApplicationController
   	if @user.save
   		session[:user_id] = @user.id
   		redirect_to menu_path, :notice => "success"
-  	else
+      @user.update_attribute(:stage1_score, 0)
+  	  @user.update_attribute(:stage2_score, 0)
+      @user.update_attribute(:stage3_score, 0)
+      @user.update_attribute(:stage2_enable, false)
+      @user.update_attribute(:stage3_enable, false)
+    else
   		render 'new'
   	end
   end
 
+  def update
+    @user = User.find(session[:user_id])
+    @user.update_attributes(user_params)
+    if @user.save
+      redirect_to menu_path
+    else
+      redirect_to stage1_path
+    end
+  end
+
   private
   	def user_params
-  		params.require(:user).permit(:name, :password, :password_confirmation)
+  		params.require(:user).permit(:name, :password, :password_confirmation, :stage1_score)
   	end
 end

@@ -17,11 +17,19 @@
 <% end %>
 </div>
 
+<div class="secret_form">
+	<% if current_user %>
+		<%= form_for @user do |t| %>
+			<p><%= t.label :stage1_score %><%= t.text_field :stage1_score %></p>
+			<p><%= t.submit :id => "submit_score" %>
+		<% end %>
+	<% end %>
+</p>
+
 <script>
 $(document).ready(function() {
 	$(".quiz-window-3").css('display', 'none');
 	position_windows();
 	change_quiz();
-	<% current_user.stage1_score = 1 %>
 });
 </script>

@@ -1,0 +1,9 @@
+<% if current_user %>
+	<%= form_for @user do |f| %>
+		<p><%= f.label "name" %><%= f.text_field :name %></p>
+		<p><%= f.label :stage1_score %><%= f.text_field :stage1_score %></p>
+		<%= f.password_field :password %><%= f.password_field :password_confirmation %>
+		<%= f.submit %>
+	<% end %>
+	<%= @user.errors.full_messages %>
+<% end %>

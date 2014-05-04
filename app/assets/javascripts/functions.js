@@ -140,6 +140,12 @@ function change_quiz() {
 		$(".quiz-window-3").css('display', 'static');
 		$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
 		$(".back-to-menu").css('display', 'block');
-		
+		save_progress();
 	}
+}
+
+
+function save_progress() {
+	document.getElementById('user_stage1_score').value = stage1_scoring;
+	document.getElementById('submit_score').click();
 }
