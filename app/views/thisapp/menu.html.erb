@@ -1,30 +1,18 @@
 <div class="menu_box" id="menu_box_id">
-	<div class="frame_profile" id="frame_profile_id">
-		<br />
-			<% if current_user %>
-				<p style="margin-left: 480px;"><%= link_to "登出", sign_out_path , :class => "btn btn-default" , :style => "width:100px;" %></p>
-			<% else %>
-				<p style="margin-left: 380px;"><%= link_to "註冊", sign_up_path , :class => "btn btn-primary btn-lg" , :style => "width:100px;" %> <%= link_to "登入", sign_in_path , :class => "btn btn-primary btn-lg" , :style => "width:100px;" %></p>
+	<div class="frame_profile" id="frame_profile_id" style="padding-top:15px">
+			<div style="padding-left: 20px; font-size: 18px; display: inline-block;">
+				<% if current_user %>
+					<span style="margin-left: 200px">你好！<%= current_user.name %> (<%= link_to "登出", sign_out_path %>)<%= current_user.stage1_score %></span>
+				<% end %>
+			</div>
+			<div style ="display: inline-block; position: absolute; margin-left: 180px">
+			<% if !current_user %>
+				<span style=""><%= link_to "註冊", sign_up_path , :class => "btn btn-primary" , :style => "width:100px;" %> <%= link_to "登入", sign_in_path , :class => "btn btn-primary" , :style => "width:100px;" %></span>
 			<% end %>
-			
-		<br />
-		<div style="padding-left:40px; font-size: 20px">
-			<% if current_user %>
-				<p>玩家：<%= current_user.name %></p>
-				<p>遊戲完成度：</p>
-				<p>Score: <%= current_user.stage1_score %></p>
-			<% else %>
-				<p>玩家：Unknown</p>
-				<p>遊戲完成度：Unknown</p>
-				
-			<% end %>
-		</div>
-
-	</div>
-	
-	<div class="frame_game" id="frame_game_id">
-		<p style="padding-top: 20px"></p>
-		<div class="stage_1_button" onclick="location.href='/stage1'"></div>
+			</div>
+		<p style="padding-top: 15px"></p>
+		<div class="instruction"></div>
+		<div class="stage_1_button" onclick=""></div>
 		</p>
 		<div class="stage_2_button" onclick="location.href='/stage2'"></div>
 		</p>
@@ -32,16 +20,7 @@
 		</p>
 		<div class="stage_lock_button" id="lock_stage_2"></div>
 		<div class="stage_lock_button" id="lock_stage_3"></div>
-
-
-
 	</div>
-</div>
-<div class="divider2">
-	</p>
-	<div id="user_profile" class="btn btn-default btn-lg" style="width:200px; display: static;" onclick="">使用者</div>
-	<div id="game_process" class="btn btn-default btn-lg" style="width:200px; display: static;" onclick="">開始遊戲</div>
-</div>
 
 <script>
 $(document).ready(function() {
@@ -49,5 +28,25 @@ $(document).ready(function() {
 		$("#user_profile").toggleClass("active");
 		$("#lock_stage_2").css("margin-top", -220);
 		$("#lock_stage_3").css("margin-top", 10);
+		$(".instruction").css("display", "none");
+
+	$(".stage_1_button").click(function(){
+		entering = 1;
+		<% if !current_user || current_user.stage1_score == 0 %>
+			$(".instruction").css("display", "static");
+			$(this).css('display', 'none');
+			$('#user_profile').css('display', 'none');
+			$('#game_process').css('display', 'none');
+		<% else %>
+			window.location.href = "/stage" + entering;
+		<% end %>
+	});
+
+	$(".instruction").click(function(){
+		window.location.href = "/stage1";
+	});
 });
+
+
+
 </script>

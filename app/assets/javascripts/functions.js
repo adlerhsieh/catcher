@@ -139,13 +139,16 @@ function change_quiz() {
 		$('.wrong').css("display", "none");
 		$(".quiz-window-3").css('display', 'static');
 		$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
-		$(".back-to-menu").css('display', 'block');
-		save_progress();
+		$(".back-to-menu").css('display', 'none');
+		$("#back-to-menu-id-2").css('display', 'static');
 	}
 }
 
 
 function save_progress() {
-	document.getElementById('user_stage1_score').value = stage1_scoring;
+	if (stage1_scoring > user_current_stage1_score) {
+		document.getElementById('user_stage1_score').value = stage1_scoring;
+	}
 	document.getElementById('submit_score').click();
 }
+

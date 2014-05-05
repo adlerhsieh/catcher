@@ -52,6 +52,14 @@ body {
 	z-index: 5;
 }
 
+#back-to-menu-id-2 {
+	position: absolute;
+	width: 150px;
+	height: 45px;
+	margin-top: 260px;
+	z-index: 5;
+}
+
 .status-bar {
 	display: inline-block;
 	width: 150px;
@@ -188,4 +196,17 @@ body {
 
 .secret_form {
 	opacity: 0;
+}
+
+.instruction {
+	width: 600px;
+	height: 400px;
+	background-image: image-url("instruction1.jpg");
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -60px;
+	-moz-box-shadow:    inset 0 0 8px #000000;
+    -webkit-box-shadow: inset 0 0 8px #000000;
+    box-shadow:         inset 0 0 8px #000000;
 }
