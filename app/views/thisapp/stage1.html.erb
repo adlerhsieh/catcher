@@ -1,7 +1,7 @@
 <div class="everything">
 
 <%= link_to "回主選單", menu_path, :class => "back-to-menu btn btn-success btn-lg", :id => "back-to-menu-id" %>
-<div class="back-to-menu btn btn-success btn-lg" id="back-to-menu-id-2">回主選單2</div>
+<div class="btn btn-success btn-lg" id="back-to-menu-id-2">回主選單</div>
 <div class="quiz-window-2" id="quiz-window-2-id"></div>
 <div class="quiz-window" id="quiz-window-1-id"></div>
 <div class="quiz-window-3" id="quiz-window-3-id"></div>
@@ -34,10 +34,15 @@ $(document).ready(function() {
 	change_quiz();
 	<% if current_user %>
 		user_current_stage1_score = <%= current_user.stage1_score %>;
+		login = false;
 	<% end %>
 
 	$("#back-to-menu-id-2").click(function(){
-		save_progress();
+		<% if current_user %>
+			save_progress();
+		<% else %>
+			window.location.href = "/";
+		<% end %>
 	});
 });
 </script>

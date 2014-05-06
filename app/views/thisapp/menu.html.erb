@@ -21,14 +21,20 @@
 		<div class="stage_lock_button" id="lock_stage_2"></div>
 		<div class="stage_lock_button" id="lock_stage_3"></div>
 	</div>
+</div>
 
 <script>
 $(document).ready(function() {
-		$(".frame_game").css("display", "none");
-		$("#user_profile").toggleClass("active");
-		$("#lock_stage_2").css("margin-top", -220);
-		$("#lock_stage_3").css("margin-top", 10);
-		$(".instruction").css("display", "none");
+	$(".frame_game").css("display", "none");
+	$("#user_profile").toggleClass("active");
+	$("#lock_stage_2").css("margin-top", -220);
+	$("#lock_stage_3").css("margin-top", 10);
+	$(".instruction").css("display", "none");
+
+	<% if current_user && current_user.stage1_score > 2 %>
+		$("#lock_stage_2").css("display", "none");
+		$("#lock_stage_3").css("margin-top", -110);
+	<% end %>
 
 	$(".stage_1_button").click(function(){
 		entering = 1;

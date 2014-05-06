@@ -63,6 +63,7 @@ function position_windows() {
 	document.getElementById("quiz-window-3-id").style.marginLeft = unit1  + "px";
 	document.getElementById("correct-id").style.marginLeft = unit1 + 110  + "px";
 	document.getElementById("back-to-menu-id").style.marginLeft = unit1 + 225  + "px";
+	document.getElementById("back-to-menu-id-2").style.marginLeft = unit1 + 225  + "px";
 	document.getElementById("wrong-id").style.marginLeft = unit1 + 150  + "px";
 	//$(".wrong").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 150);
 	//$(".back-to-menu").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 225);
@@ -138,7 +139,15 @@ function change_quiz() {
 		$('.correct').css("display", "none");
 		$('.wrong').css("display", "none");
 		$(".quiz-window-3").css('display', 'static');
-		$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
+			if (user_current_stage1_score > 4) {
+				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
+			} else if (login = true && stage1_scoring > 4) {
+				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_win.png")');
+			} else if (login = true && stage1_scoring < 5) {
+				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_lose.png")');
+			} else {
+				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
+			};
 		$(".back-to-menu").css('display', 'none');
 		$("#back-to-menu-id-2").css('display', 'static');
 	}
