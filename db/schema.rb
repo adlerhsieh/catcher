@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 20140503053653) do
     t.integer  "stage1_score"
     t.integer  "stage2_score"
     t.integer  "stage3_score"
-    t.boolean  "stage2_enable"
-    t.boolean  "stage3_enable"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

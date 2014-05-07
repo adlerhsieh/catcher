@@ -7,8 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :stage1_score
       t.integer :stage2_score
       t.integer :stage3_score
-      t.boolean :stage2_enable
-      t.boolean :stage3_enable
 
       t.timestamps
     end

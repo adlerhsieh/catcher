@@ -12,8 +12,6 @@ class UsersController < ApplicationController
       @user.update_attribute(:stage1_score, 0)
   	  @user.update_attribute(:stage2_score, 0)
       @user.update_attribute(:stage3_score, 0)
-      @user.update_attribute(:stage2_enable, false)
-      @user.update_attribute(:stage3_enable, false)
     else
   		render 'new'
   	end
