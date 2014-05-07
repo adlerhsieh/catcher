@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require bootstrap
 //= require_tree .
 var switch_id = 0;
 var current_opacity = 0;
