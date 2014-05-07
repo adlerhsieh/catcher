@@ -1,0 +1,59 @@
+<%= link_to "回主選單", menu_path, :class => "back-to-menu btn btn-success btn-lg", :id => "back-to-menu-id" %>
+<div class="everything">
+
+<div class="btn btn-success btn-lg" id="back-to-menu-id-2">前往下一關</div>
+<div class="quiz-window-2" id="quiz-window-2-id"></div>
+<div class="quiz-window" id="quiz-window-1-id"></div>
+<div class="quiz-window-3" id="quiz-window-3-id"></div>
+<div class="right_answer" id="right_answer-id"></div>
+<div class="wrong" id="wrong-id"></div>
+<div class="correct" id="correct-id"></div>
+</p>
+</p>
+<div class="divider">
+	<div id="pause" class="btn btn-primary btn-lg" style="width:100px; display: static;" onclick="pause_switch()">暫停</div>  	<span class="status-bar"><p style="position: absolute; font-size: 20px; padding-top: 7px; padding-left: 30px" id="stage_score">得分：0</p></span>   <span class="time-bar"></span>
+</div>
+</div>
+
+<div class="secret_form">
+	<% if current_user %>
+		<%= form_for @user do |t| %>
+			<p><%= t.label :stage2_score %><%= t.text_field :stage2_score %></p>
+			<p><%= t.submit :id => "submit_score" %>
+		<% end %>
+	<% end %>
+</p>
+</div>
+
+<script>
+
+if (document.referrer.slice(-1) == "/" || document.referrer.slice(-1) == "u") {
+	
+};
+	
+
+$(document).ready(function() {
+	$(".quiz-window-3").css('display', 'none');
+	$("#back-to-menu-id-2").css('display', 'none');
+	position_windows();
+	change_quiz();
+	<% if current_user %>
+		user_current_stage_score = parseInt(<%= current_user.stage2_score %>);
+		login = true;
+	<% else %>
+		user_current_stage_score = 0;
+	<% end %>
+});
+
+	$("#back-to-menu-id-2").click(function(){
+		<% if current_user %>
+			if (stage_scoring > user_current_stage_score) {
+				document.getElementById('user_stage2_score').value = stage_scoring;
+			};
+			document.getElementById('submit_score').click();
+		<% else %>
+			window.location.href = "/";
+		<% end %>
+	});
+
+</script>

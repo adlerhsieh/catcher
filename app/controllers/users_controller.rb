@@ -20,15 +20,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(session[:user_id])
     @user.update_attributes(user_params)
-    if @user.save
-      redirect_to menu_path
-    else
-      redirect_to stage1_path
-    end
+    redirect_to menu_path
   end
 
   private
   	def user_params
-  		params.require(:user).permit(:name, :password, :password_confirmation, :stage1_score)
+  		params.require(:user).permit(:name, :password, :password_confirmation, :stage1_score, :stage2_score, :stage3_score)
   	end
 end

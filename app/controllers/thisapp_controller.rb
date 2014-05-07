@@ -8,9 +8,11 @@ class ThisappController < ApplicationController
 	end
 
 	def stage2
+		@user = User.find(session[:user_id]) if session[:user_id]
 	end
 
 	def stage3
+		@user = User.find(session[:user_id]) if session[:user_id]
 	end
 
 	def menu

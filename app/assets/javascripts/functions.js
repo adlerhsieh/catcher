@@ -1,7 +1,7 @@
 //正確答案播放音效&動畫
 function correct_answer() {
-	stage1_scoring = stage1_scoring + 1;
-	$('#stage1_score').text("得分：" + stage1_scoring);
+	stage_scoring = stage_scoring + 1;
+	$('#stage_score').text("得分：" + stage_scoring);
 	$(".quiz-window-2").css('opacity', 1);
 	$(".right_answer").unbind('click' , correct_answer);
 	$(".quiz-window-2").unbind('click' , wrong_answer);
@@ -26,6 +26,7 @@ function wrong_answer() {
 function time_up() {
 	$(".right_answer").unbind('click' , correct_answer);
 	$(".quiz-window-2").unbind('click' , wrong_answer);
+	$(".instruction_point").css('display', 'none');
 	$('.wrong').css("display", "block");
 	clearInterval(counter);
 	$('#pause').attr('disabled', true);
@@ -47,9 +48,9 @@ function timer() {
 	$(".quiz-window-2").animate({opacity: revealing_speed}, 0);
 	if ($(".time-bar").width() < 1) {
 		if(current_q_number == 10){
-			correct_answer()
+			correct_answer();
 		} else {
-			time_up()
+			time_up();
 		}
 	} else {
 		$(".time-bar").css('opacity', 1);
@@ -61,7 +62,7 @@ function position_windows() {
 	unit1 = parseInt(document.getElementById("quiz-window-1-id").style.marginLeft);
 	document.getElementById("quiz-window-2-id").style.marginLeft = unit1  + "px";
 	document.getElementById("quiz-window-3-id").style.marginLeft = unit1  + "px";
-	document.getElementById("correct-id").style.marginLeft = unit1 + 110  + "px";
+	document.getElementById("correct-id").style.marginLeft = unit1 + 110 + "px";
 	document.getElementById("back-to-menu-id").style.marginLeft = unit1 + 225  + "px";
 	document.getElementById("back-to-menu-id-2").style.marginLeft = unit1 + 225  + "px";
 	document.getElementById("wrong-id").style.marginLeft = unit1 + 150  + "px";
@@ -91,6 +92,7 @@ function pause_switch() {
 		$('.quiz-window-2').css('opacity', '0');
 		$(".quiz-window-3").css('display', 'static');
 		$(".back-to-menu").css('display', 'block');
+		$(".instruction_point").css('display', 'none');
 		//停止棒條
 		clearInterval(counter);
 		switch_id = 1;
@@ -123,13 +125,14 @@ function change_quiz() {
 		current_q_number = current_q_number + 1;
 		$('.quiz-window').css('background-image', qs[current_q_number].backgroundImage);
 		$('.quiz-window-2').css('background-image', qs[current_q_number].rightAnswer);
+		//$('#correct-id').css('margin-left', qs[current_q_number].correct_left_modifier);
 		$('.quiz-window-2').css('opacity', '0');
 		$('#pause').attr('disabled', false);
 		$(".right_answer").bind('click' , correct_answer);
 		$(".quiz-window-2").bind('click' , wrong_answer);
 		$('.correct').css("display", "none");
 		$('.wrong').css("display", "none");
-		position_right_answer()
+		position_right_answer();
 		revealing_speed = qs[current_q_number].revealing_speed;
 		counter = setInterval(timer, 33);
 	} else {
@@ -139,25 +142,17 @@ function change_quiz() {
 		$('.correct').css("display", "none");
 		$('.wrong').css("display", "none");
 		$(".quiz-window-3").css('display', 'static');
-			if (user_current_stage1_score > 4) {
+			if (user_current_stage_score > 4) {
 				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
-			} else if (login = true && stage1_scoring > 4) {
+			} else if (login = true && stage_scoring > 4) {
 				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_win.png")');
-			} else if (login = true && stage1_scoring < 5) {
+			} else if (login = true && stage_scoring < 5) {
 				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_lose.png")');
 			} else {
 				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
 			};
 		$(".back-to-menu").css('display', 'none');
 		$("#back-to-menu-id-2").css('display', 'static');
-	}
-}
-
-
-function save_progress() {
-	if (stage1_scoring > user_current_stage1_score) {
-		document.getElementById('user_stage1_score').value = stage1_scoring;
-	}
-	document.getElementById('submit_score').click();
-}
+	};
+};
 
