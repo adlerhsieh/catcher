@@ -1,7 +1,8 @@
-<div id="preload_block">
-	<div class="preload_text">讀取中...</div>
-</div>
+
 <div class="everything">
+	<div id="preload_block">
+		<div class="preload_text">讀取中...</div>
+	</div>
 <%= link_to "回主選單", menu_path, :class => "back-to-menu btn btn-success btn-lg", :id => "back-to-menu-id" %>
 <div class="btn btn-success btn-lg" id="back-to-menu-id-2">繼續</div>
 <div class="quiz-window-2" id="quiz-window-2-id"></div>
@@ -34,7 +35,41 @@
 <%= render file: "/app/views/thisapp/preload.html.erb" %>
 
 <script>
+$(document).ready(function() {
+	$(".quiz-window-3").css('display', 'none');
+	$("#back-to-menu-id-2").css('display', 'none');
+	$('.instruction_point').css('opacity', 0);
+	$('#stage_score').css('opacity', 0);
+	<% if current_user %>
+		user_current_stage_score = <%= current_user.stage1_score %>;
+		login = false;
+	<% end %>
 
+	$("#back-to-menu-id-2").click(function(){
+		<% if current_user %>
+			if (stage_scoring > user_current_stage_score) {
+				document.getElementById('user_stage1_score').value = stage_scoring;
+			};
+			document.getElementById('submit_score').click();
+		<% else %>
+			window.location.href = "/";
+		<% end %>
+	});
+
+	$(document).click(function(){
+		document.getElementById('instruction_point_id').style.display = "none";
+	});
+});
+
+$(window).load(function(){
+	document.getElementById('preload').style.display = "none";
+	//document.getElementById('preload_block').style.opacity = 0;
+	$('#preload_block').animate({opacity: 0}, 800);
+	$('.instruction_point').animate({opacity:1}, 1000);
+	$('#stage_score').animate({opacity:1}, 1000);
+	position_windows();
+	change_quiz();
+});
 
 
 </script>
