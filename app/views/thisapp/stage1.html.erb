@@ -29,7 +29,7 @@
 </p>
 </div>
 
-
+<%= render file: "/app/views/thisapp/preload.html.erb" %>
 
 <script>
 $(document).ready(function() {
@@ -60,12 +60,12 @@ $(document).ready(function() {
 	});
 });
 
-//$(window).load(function(){
-	//document.getElementById('preload').style.display = "none";
+$(window).load(function(){
+	document.getElementById('preload').style.display = "none";
 	//$('#preload_block').animate({opacity: 0}, 800);
 	//$('.instruction_point').animate({opacity:1}, 1000);
 	
-//});
+});
 
 //<div id="preload_block">
 //	<div class="preload_text">讀取中...</div>
