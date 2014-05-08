@@ -156,3 +156,15 @@ function change_quiz() {
 	};
 };
 
+function stage1_preload() {
+	document.getElementById("preload_1").style.backgroundImage = 'url("/assets/1-1.jpg")';
+	document.getElementById("preload_2").style.backgroundImage = 'url("/assets/2-1.jpg")';
+	document.getElementById("preload_3").style.backgroundImage = 'url("/assets/3-1.jpg")';
+	document.getElementById("preload_4").style.backgroundImage = 'url("/assets/4-1.jpg")';
+	document.getElementById("preload_5").style.backgroundImage = 'url("/assets/5-1.jpg")';
+	document.getElementById("preload_6").style.backgroundImage = 'url("/assets/6-1.jpg")';
+	document.getElementById("preload_7").style.backgroundImage = 'url("/assets/7-1.jpg")';
+	document.getElementById("preload_8").style.backgroundImage = 'url("/assets/8-1.jpg")';
+	document.getElementById("preload_9").style.backgroundImage = 'url("/assets/9-1.jpg")';
+	document.getElementById("preload_10").style.backgroundImage = 'url("/assets/10-1.jpg")';
+};

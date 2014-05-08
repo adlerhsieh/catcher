@@ -1,3 +1,6 @@
+<div id="preload_block" class="navbar-fixed-top">
+	<div class="preload_text">讀取中...</div>
+</div>
 <div class="everything">
 <%= link_to "回主選單", menu_path, :class => "back-to-menu btn btn-success btn-lg", :id => "back-to-menu-id" %>
 <div class="btn btn-success btn-lg" id="back-to-menu-id-2">繼續</div>
@@ -28,12 +31,14 @@
 </p>
 </div>
 
+<%= render file: "/app/views/thisapp/preload.html.erb" %>
+
+
 <script>
 $(document).ready(function() {
 	$(".quiz-window-3").css('display', 'none');
 	$("#back-to-menu-id-2").css('display', 'none');
-	position_windows();
-	change_quiz();
+	stage1_preload();
 	<% if current_user %>
 		user_current_stage_score = <%= current_user.stage1_score %>;
 		login = false;
@@ -53,5 +58,12 @@ $(document).ready(function() {
 	$(document).click(function(){
 		$(".instruction_point").css('display', 'none');
 	});
+});
+
+$(window).load(function(){
+	document.getElementById('preload').style.display = "none";
+	$('#preload_block').animate({opacity: 0}, 800);
+	position_windows();
+	change_quiz();
 });
 </script>
