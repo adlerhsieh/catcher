@@ -251,17 +251,19 @@ body {
 	opacity: 1;
 	width: 100%;
 	height: 100%;
+	display: block;
+	position: absolute;
 }
 
 .preload_text {
-	margin-left:auto;
-	margin-right:auto;
-	margin-top:50px;
-	background-color:white;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	background-color: white;
 	width: 200px;
 	height: 50px;
 	font-size: 20px;
 	border-radius: 10px;
-	text-align:center;
+	text-align: center;
 	padding-top: 10px;
 }
