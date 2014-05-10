@@ -29,6 +29,15 @@
 		<div class="stage_3_button" onclick="location.href='/stage3'"></div>
 		<div class="stage2_lock_button" id="lock_stage_2"></div>
 		<div class="stage3_lock_button" id="lock_stage_3"></div>
+		<% if current_user %><% if current_user.stage1_score == 5 %>
+			<div class="stage1_perfect" id="perfect1" onclick="location.href='/stage1'"></div>
+		<% end %><% end %>
+		<% if current_user %><% if current_user.stage1_score == 10 %>
+			<div class="stage2_perfect" id="perfect2" onclick="location.href='/stage2'"></div>
+		<% end %><% end %>
+		<% if current_user %><% if current_user.stage1_score == 10 %>
+			<div class="stage3_perfect" id="perfect3" onclick="location.href='/stage3'"></div>
+		<% end %><% end %>
 	</div>
 </div>
 
@@ -47,7 +56,6 @@ $(document).ready(function() {
 	<% end %>
 
 	$(".stage_1_button").click(function(){
-		entering = 1;
 		<% if !current_user || current_user.stage1_score == 0 %>
 			$(".instruction").css("display", "static");
 			$(".stage_2_button").css('display', 'none');
@@ -56,7 +64,7 @@ $(document).ready(function() {
 			$(".stage3_lock_button").css('display', 'none');
 			$(this).css('display', 'none');
 		<% else %>
-			window.location.href = "/stage" + entering;
+			window.location.href = "/stage1";
 		<% end %>
 	});
 
@@ -65,6 +73,16 @@ $(document).ready(function() {
 	});
 });
 
-
-
+$(".stage_1_button").hover(function(){
+	$(this).toggleClass('lower_opacity');
+});
+$(".stage_2_button").hover(function(){
+	$(this).toggleClass('lower_opacity');
+});
+$(".stage_3_button").hover(function(){
+	$(this).toggleClass('lower_opacity');
+});
+$(".stage1_perfect").hover(function(){
+	$(this).toggleClass('display_none');
+});
 </script>

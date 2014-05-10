@@ -121,7 +121,7 @@ function pause_switch() {
 //}
 
 function change_quiz() {
-	if (current_q_number < 10) {
+	if (current_q_number < 5) {
 		current_q_number = current_q_number + 1;
 		$('.quiz-window').css('background-image', qs[current_q_number].backgroundImage);
 		$('.quiz-window-2').css('background-image', qs[current_q_number].rightAnswer);

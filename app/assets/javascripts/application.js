@@ -21,6 +21,7 @@ var current_q_number = 0;
 var revealing_speed = qs[current_q_number].revealing_speed;
 var change = 0;
 var entering = 1;
+var current_stage = 0;
 var login = false;
 var stage_scoring = 0;
 var unit1 = "";
@@ -29,15 +30,6 @@ var user_current_stage_score = 0;
 
 $(document).ready(function() {
 
-	$(".stage_1_button").hover(function(){
-		$(this).toggleClass('lower_opacity');
-	});
-	$(".stage_2_button").hover(function(){
-		$(this).toggleClass('lower_opacity');
-	});
-	$(".stage_3_button").hover(function(){
-		$(this).toggleClass('lower_opacity');
-	});
 
 });
 

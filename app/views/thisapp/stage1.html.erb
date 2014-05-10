@@ -8,9 +8,7 @@
 <%= link_to "回主選單", menu_path, :class => "back-to-menu btn btn-success btn-lg", :id => "back-to-menu-id" %>
 <div class="btn btn-success btn-lg" id="back-to-menu-id-2">繼續</div>
 <div class="quiz-window-2" id="quiz-window-2-id"></div>
-<div class="quiz-window" id="quiz-window-1-id">	
-	<div class="instruction_point" id="instruction_point_id">仔細看，看到怪人就點下去 ---></div>
-</div>
+<div class="quiz-window" id="quiz-window-1-id"></div>
 <div class="quiz-window-3" id="quiz-window-3-id"></div>
 <div class="right_answer" id="right_answer-id"></div>
 <div class="wrong" id="wrong-id"></div>
@@ -34,13 +32,12 @@
 </p>
 </div>
 
-<%= render file: "/app/views/thisapp/preload.html.erb" %>
+<%= render file: "/app/views/thisapp/preload1.html.erb" %>
 
 <script>
 $(document).ready(function() {
 	$(".quiz-window-3").css('display', 'none');
 	$("#back-to-menu-id-2").css('display', 'none');
-	$('.instruction_point').css('opacity', 0);
 	$('#stage_score').css('opacity', 0);
 	<% if current_user %>
 		user_current_stage_score = <%= current_user.stage1_score %>;
@@ -58,16 +55,12 @@ $(document).ready(function() {
 		<% end %>
 	});
 
-	$(document).click(function(){
-		document.getElementById('instruction_point_id').style.display = "none";
-	});
 });
 
 $(window).load(function(){
 	document.getElementById('preload').style.display = "none";
 	$('#preload_block').animate({opacity: 0}, 800);
 	setTimeout(function(){document.getElementById('preload_block').style.display = "none";}, 800);
-	$('.instruction_point').animate({opacity:1}, 1000);
 	$('#stage_score').animate({opacity:1}, 1000);
 	position_windows();
 	change_quiz();
