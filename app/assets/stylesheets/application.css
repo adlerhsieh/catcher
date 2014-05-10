@@ -19,3 +19,7 @@
 	background-color: red;
 	display: table;
 }
+
+hr {
+	border-top: 1px solid black;
+}

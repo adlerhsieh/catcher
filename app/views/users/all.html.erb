@@ -1,0 +1,11 @@
+<% if current_user %>
+	<% if current_use.name == "adler" %>
+		<h2>All Users</h2>
+		<hr>
+		<% @user.each do |f| %>
+			<p>Name: <%= f.name %></p>
+			<p>Scores: <%= f.stage1_score %>, <%= f.stage2_score %>, <%= f.stage3_score %></p>
+
+		<% end %>
+	<% end %>
+<% end %>

@@ -1,3 +1,4 @@
+<!-- Loading Screen-->
 <div id="preload_block" style="background-color: #A4A4A4;opacity: 1; width: 100%; height: 100%; position: absolute;">
 <div class="preload_text" style="margin-left: auto; margin-right: auto; margin-top: 200px; background-color: white; width: 200px; height: 50px; font-size: 20px; border-radius: 10px; text-align: center; padding-top: 10px;">讀取中...</div>
 </div>
@@ -64,8 +65,8 @@ $(document).ready(function() {
 
 $(window).load(function(){
 	document.getElementById('preload').style.display = "none";
-	//document.getElementById('preload_block').style.opacity = 0;
 	$('#preload_block').animate({opacity: 0}, 800);
+	setTimeout(function(){document.getElementById('preload_block').style.display = "none";}, 800);
 	$('.instruction_point').animate({opacity:1}, 1000);
 	$('#stage_score').animate({opacity:1}, 1000);
 	position_windows();
