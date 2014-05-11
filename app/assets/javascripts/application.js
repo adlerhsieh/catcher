@@ -29,6 +29,6 @@ var user_current_stage_score = 0;
 
 $(window).resize(function(){
 	position_windows();
-	position_right_answer() ;
+	position_right_answer();
 });
 

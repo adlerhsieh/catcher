@@ -10,7 +10,14 @@ if (window.location.pathname == '/stage1') {
 	var s8 = { "marginLeft": 50 , "marginTop": -220, "width": 130, "height": 135, "revealing_speed": "0", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/8.jpg")', "rightAnswer": 'none'};
 	var s9 = { "marginLeft": 420 , "marginTop": -312, "width": 42, "height": 55, "revealing_speed": "0", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/9.jpg")', "rightAnswer": 'none'};
 	var s10 = { "marginLeft": 300 , "marginTop": -200, "width": 40, "height": 50, "revealing_speed": "0", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/10.jpg")', "rightAnswer": 'none'};
-	var qs = [0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
+	var qs = [0, s1];
+	var arr = [s2, s3, s4, s5, s6, s7, s8, s9, s10];
+	for (var a = 0 ; a < 9 ; a++){
+		var randomNumber = Math.floor(Math.random() * arr.length);
+		var pushToArray = arr[randomNumber];
+		arr.splice(randomNumber,1);
+		qs.push(pushToArray);
+	}
 } else if(window.location.pathname == '/stage2') {
 	var q1 = { "marginLeft": 520 , "marginTop": -400, "width": 80, "height": 70, "revealing_speed": "+=.0055", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/1-1.jpg")', "rightAnswer": 'url("/assets/1-2.png")'};
 	var q2 = { "marginLeft": 70 , "marginTop": -235, "width": 105, "height": 155, "revealing_speed": "+=.004", "correct_left_modifier": 50, "backgroundImage": 'url("/assets/2-1.jpg")', "rightAnswer": 'url("/assets/2-2.png")'};
@@ -22,5 +29,12 @@ if (window.location.pathname == '/stage1') {
 	var q8 = { "marginLeft": 118 , "marginTop": -155, "width": 45, "height": 45, "revealing_speed": "+=.004", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/8-1.jpg")', "rightAnswer": 'url("/assets/8-2.png")'};
 	var q9 = { "marginLeft": 210 , "marginTop": -225, "width": 130, "height": 125, "revealing_speed": "+=.004", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/9-1.jpg")', "rightAnswer": 'url("/assets/9-2.png")'};
 	var q10 = { "marginLeft": 0 , "marginTop": 0, "width": 0, "height": 0, "revealing_speed": "+=.001", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/10-1.jpg")', "rightAnswer": 'url("")'};
-	var qs = [0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+	var qs = [0, q1];
+	var arr = [q2, q3, q4, q5, q6, q7, q8, q9, q10];
+	for (var a = 0 ; a < 9 ; a++){
+		var randomNumber = Math.floor(Math.random() * arr.length);
+		var pushToArray = arr[randomNumber];
+		arr.splice(randomNumber,1);
+		qs.push(pushToArray);
+	}
 };
