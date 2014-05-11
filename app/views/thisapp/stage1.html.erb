@@ -51,7 +51,11 @@ $(document).ready(function() {
 			};
 			document.getElementById('submit_score').click();
 		<% else %>
-			window.location.href = "/";
+			if (stage_scoring > 4) {
+				window.location.href = "/stage2";
+			} else {
+				window.location.href = "/";
+			};			
 		<% end %>
 	});
 

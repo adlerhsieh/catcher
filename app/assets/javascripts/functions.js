@@ -144,12 +144,10 @@ function change_quiz() {
 		$(".quiz-window-3").css('display', 'static');
 			if (user_current_stage_score > 4) {
 				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
-			} else if (login = true && stage_scoring > 4) {
+			} else if (stage_scoring > 4) {
 				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_win.png")');
-			} else if (login = true && stage_scoring < 5) {
-				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_lose.png")');
 			} else {
-				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
+				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_lose.png")');
 			};
 		$(".back-to-menu").css('display', 'none');
 		$("#back-to-menu-id-2").css('display', 'static');

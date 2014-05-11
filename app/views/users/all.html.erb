@@ -1,11 +1,42 @@
+<script>
+var stage1_passed = 0;
+var stage2_passed = 0;
+var stage3_passed = 0;
+</script>
+<p><%= link_to "回到選單", menu_path, :class => "btn btn-default" %></p>
 <% if current_user %>
-	<% if current_use.name == "adler" %>
-		<h2>All Users</h2>
+	<% if current_user.name == "adler" %>
+		<h2>統計數據</h2>
+		<p>註冊人數: <%= @user.count %></p>
+		<p id="stage1_passed_p"></p>
+		<p id="stage2_passed_p"></p>
+		<p id="stage3_passed_p"></p>
+		<hr>
+		<h2>所有玩家</h2>
 		<hr>
 		<% @user.each do |f| %>
-			<p>Name: <%= f.name %></p>
-			<p>Scores: <%= f.stage1_score %>, <%= f.stage2_score %>, <%= f.stage3_score %></p>
-
+			<p>No:<%= f.id %>. Name: <%= f.name %></p>
+			<p>Scores: <%= f.stage1_score %>, <%= f.stage2_score %>, <%= f.stage3_score %> (<%= link_to "刪除玩家", user_path(f), method: :delete, data: {confirm: "Sure?"} %>)</p>
+			<script>
+				if (<%= f.stage1_score %> > 4) {
+					stage1_passed = stage1_passed + 1;
+				};
+				if (<%= f.stage2_score %> > 4) {
+					stage2_passed = stage2_passed + 1;
+				};
+				if (<%= f.stage3_score %> > 4) {
+					stage3_passed = stage3_passed + 1;
+				};
+			</script>
+		<hr>
 		<% end %>
 	<% end %>
 <% end %>
+
+<script>
+$(window).load(function(){
+	document.getElementById("stage1_passed_p").innerHTML = "第一關過關人數：" + stage1_passed;
+	document.getElementById("stage2_passed_p").innerHTML = "第二關過關人數：" + stage2_passed;
+	document.getElementById("stage3_passed_p").innerHTML = "第三關過關人數：" + stage3_passed;
+});
+</script>

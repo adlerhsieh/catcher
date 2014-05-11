@@ -4,7 +4,10 @@
 			<% if !current_user %>
 				<span style=""><%= link_to "註冊", sign_up_path , :class => "btn btn-primary" , :style => "width:100px;" %> <%= link_to "登入", sign_in_path , :class => "btn btn-primary" , :style => "width:100px;" %></span>
 			<% else %>
-				<span style="margin-left: 100px;"><%= link_to "登出", sign_out_path, :class => "btn btn-default", :style => "width:100px;" %>
+				<% if current_user.name == "adler" %>
+					<span style="margin-left: -10px;"><%= link_to "統計資料", all_users_path, :class => "btn btn-default", :style => "width:100px;" %></span>
+				<% end %>
+				<span style=""><%= link_to "登出", sign_out_path, :class => "btn btn-default", :style => "width:100px;" %></span>
 			<% end %>
 		</div>
 		<div class="profile_frame">
@@ -19,7 +22,7 @@
 						<% end %>
 					</div>
 				<% else %>
-					<p style="padding-top: 168px; text-align:center;">要登入才有完整遊戲喔</p>
+					<p style="padding-top: 168px; text-align:center;">要登入才會紀錄遊戲喔</p>
 				<% end %>
 			</div>
 		<p style="padding-top: 15px"></p>
