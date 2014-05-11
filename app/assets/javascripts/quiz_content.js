@@ -21,8 +21,8 @@ var q8 = { "marginLeft": 118 , "marginTop": -155, "width": 45, "height": 45, "re
 var q9 = { "marginLeft": 210 , "marginTop": -225, "width": 130, "height": 125, "revealing_speed": "+=.004", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/9-1.jpg")', "rightAnswer": 'url("/assets/9-2.png")'};
 var q10 = { "marginLeft": 0 , "marginTop": 0, "width": 0, "height": 0, "revealing_speed": "+=.001", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/10-1.jpg")', "rightAnswer": 'url("")'};
 
-//if (window.location.pathname == '/stage1') {
+if (window.location.pathname == '/stage1') {
 	var qs = [0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
-//} else if(window.location.pathname == '/stage2') {
-//	var qs = [0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
-//};
+} else if(window.location.pathname == '/stage2') {
+	var qs = [0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+};
