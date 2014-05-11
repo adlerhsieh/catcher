@@ -4,8 +4,8 @@
 </div>
 
 <div class="everything">
-
-<%= link_to "回主選單", menu_path, :class => "back-to-menu btn btn-success btn-lg", :id => "back-to-menu-id" %>
+<div class="btn btn-primary btn-lg" id="continue-in-frame" onclick="pause_switch()">繼續</div>
+<%= link_to "回主選單", menu_path, :class => "back-to-menu btn btn-primary btn-lg", :id => "back-to-menu-id" %>
 <div class="btn btn-success btn-lg" id="back-to-menu-id-2">繼續</div>
 <div class="quiz-window-2" id="quiz-window-2-id"></div>
 <div class="quiz-window" id="quiz-window-1-id">	
@@ -38,6 +38,7 @@
 
 <script>
 $(document).ready(function() {
+	var revealing_speed = qs[current_q_number].revealing_speed;
 	$(".quiz-window-3").css('display', 'none');
 	$("#back-to-menu-id-2").css('display', 'none');
 	$('.instruction_point').css('opacity', 0);

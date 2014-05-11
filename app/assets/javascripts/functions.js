@@ -102,6 +102,7 @@ function pause_switch() {
 		$('#continue').text("暫停");
 		$('#continue').attr('class', 'btn btn-primary btn-lg');
 		$('#continue').attr('id', 'pause');
+		$('#continue-in-frame').css('display', 'none');
 		//切換佈景顏色
 		$('.quiz-window').css('background-color', 'none');
 		$('.quiz-window').css('opacity', '1');

@@ -18,7 +18,6 @@ var switch_id = 0;
 var current_opacity = 0;
 var counter = clearInterval(timer);
 var current_q_number = 0;
-var revealing_speed = qs[current_q_number].revealing_speed;
 var change = 0;
 var entering = 1;
 var current_stage = 0;
@@ -27,11 +26,6 @@ var stage_scoring = 0;
 var unit1 = "";
 var unit2 = "";
 var user_current_stage_score = 0;
-
-$(document).ready(function() {
-
-
-});
 
 $(window).resize(function(){
 	position_windows();
