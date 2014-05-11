@@ -258,5 +258,27 @@ body {
 	position: absolute; 
 	margin-left: 40px; 
 	margin-top: 0px;
-	border: solid 2px green;
+	border: solid 2px yellow;
+}
+
+.stage2_perfect {
+	background-image: image-url("perfect.png");
+	width: 300px; 
+	height: 100px; 
+	border-radius: 10px; 
+	position: absolute; 
+	margin-left: 40px; 
+	margin-top: 110px;
+	border: solid 2px yellow;
+}
+
+.stage3_perfect {
+	background-image: image-url("perfect.png");
+	width: 300px; 
+	height: 100px; 
+	border-radius: 10px; 
+	position: absolute; 
+	margin-left: 40px; 
+	margin-top: 220px;
+	border: solid 2px yellow;
 }
