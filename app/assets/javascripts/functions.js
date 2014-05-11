@@ -65,6 +65,7 @@ function position_windows() {
 	document.getElementById("correct-id").style.marginLeft = unit1 + 110 + "px";
 	document.getElementById("back-to-menu-id").style.marginLeft = unit1 + 225  + "px";
 	document.getElementById("back-to-menu-id-2").style.marginLeft = unit1 + 225  + "px";
+	document.getElementById("continue-in-frame").style.marginLeft = unit1 + 225  + "px";
 	document.getElementById("wrong-id").style.marginLeft = unit1 + 150  + "px";
 	//$(".wrong").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 150);
 	//$(".back-to-menu").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + 225);
@@ -85,6 +86,7 @@ function pause_switch() {
 		$('#pause').text("繼續");
 		$('#pause').attr('class', 'btn btn-danger btn-lg');
 		$('#pause').attr('id', 'continue');	
+		$('#continue-in-frame').css('display', 'block');
 		//切換佈景顏色
 		$('.quiz-window').css('background-color', '#979292');
 		$('.quiz-window').css('opacity', '0');
@@ -106,7 +108,12 @@ function pause_switch() {
 		$('.quiz-window-2').css('opacity', current_opacity);
 		$(".quiz-window-3").css('display', 'none');
 		$(".back-to-menu").css('display', 'none');
-		counter = setInterval(timer, 33);
+		if (window.location.pathname == '/stage1') {
+			counter = setInterval(timer, 60);
+		};
+		if (window.location.pathname == '/stage2') {
+			counter = setInterval(timer, 55);
+		};
 		switch_id = 0;
 	};
 };
@@ -121,7 +128,7 @@ function pause_switch() {
 //}
 
 function change_quiz() {
-	if (current_q_number < 5) {
+	if (current_q_number < 10) {
 		current_q_number = current_q_number + 1;
 		$('.quiz-window').css('background-image', qs[current_q_number].backgroundImage);
 		$('.quiz-window-2').css('background-image', qs[current_q_number].rightAnswer);
@@ -134,7 +141,12 @@ function change_quiz() {
 		$('.wrong').css("display", "none");
 		position_right_answer();
 		revealing_speed = qs[current_q_number].revealing_speed;
-		counter = setInterval(timer, 33);
+		if (window.location.pathname == '/stage1') {
+			counter = setInterval(timer, 60);
+		};
+		if (window.location.pathname == '/stage2') {
+			counter = setInterval(timer, 55);
+		};
 	} else {
 		$('.quiz-window').css('opacity', '0');
 		$('.quiz-window-2').css('opacity', '0');

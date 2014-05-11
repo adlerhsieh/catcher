@@ -48,11 +48,19 @@ body {
 	display: none;
 	width: 150px;
 	height: 45px;
-	margin-top: 260px;
+	margin-top: 310px;
 	z-index: 5;
 	//兩顆主選單按鈕的margin-left position設定是從functions.js
 }
-	
+
+#continue-in-frame {
+	position: absolute;
+	display: none;
+	width: 150px;
+	height: 45px;
+	margin-top: 260px;
+}
+
 #back-to-menu-id-2 {
 	position: absolute;
 	width: 150px;
