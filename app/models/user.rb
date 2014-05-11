@@ -25,4 +25,8 @@ class User < ActiveRecord::Base
 	def already_sign_up?
 		self.password_hash.nil?
 	end
+
+	def total_score
+		stage1_score + stage2_score + stage3_score
+	end
 end
