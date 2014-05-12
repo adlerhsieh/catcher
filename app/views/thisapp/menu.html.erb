@@ -56,8 +56,12 @@ $(document).ready(function() {
 		$(".profile_frame").css('background-image', "none");
 	<% end %>
 
-	<% if current_user && current_user.stage1_score > 2 %>
+	<% if current_user && current_user.stage1_score > 4 %>
 		$(".stage2_lock_button").css("display", "none");
+	<% end %>
+
+	<% if current_user && current_user.stage2_score > 4 %>
+		$(".stage3_lock_button").css("display", "none");
 	<% end %>
 
 	$(".stage_1_button").click(function(){

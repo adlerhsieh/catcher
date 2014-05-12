@@ -47,11 +47,7 @@ function timer() {
 	//答案逐漸顯露出來
 	$(".quiz-window-2").animate({opacity: revealing_speed}, 0);
 	if ($(".time-bar").width() < 1) {
-		if(current_q_number == 10){
-			correct_answer();
-		} else {
-			time_up();
-		}
+		time_up();
 	} else {
 		$(".time-bar").css('opacity', 1);
 	};
