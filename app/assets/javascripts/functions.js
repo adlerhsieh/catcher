@@ -105,12 +105,7 @@ function pause_switch() {
 		$('.quiz-window-2').css('opacity', current_opacity);
 		$(".quiz-window-3").css('display', 'none');
 		$(".back-to-menu").css('display', 'none');
-		if (window.location.pathname == '/stage1') {
-			counter = setInterval(timer, 60);
-		};
-		if (window.location.pathname == '/stage2') {
-			counter = setInterval(timer, 55);
-		};
+		counter = setInterval(timer, stage_time);
 		switch_id = 0;
 	};
 };
@@ -138,12 +133,7 @@ function change_quiz() {
 		$('.wrong').css("display", "none");
 		position_right_answer();
 		revealing_speed = qs[current_q_number].revealing_speed;
-		if (window.location.pathname == '/stage1') {
-			counter = setInterval(timer, 60);
-		};
-		if (window.location.pathname == '/stage2') {
-			counter = setInterval(timer, 55);
-		};
+		counter = setInterval(timer, stage_time);
 	} else {
 		$('.quiz-window').css('opacity', '0');
 		$('.quiz-window-2').css('opacity', '0');

@@ -37,6 +37,7 @@
 <script>
 $(document).ready(function() {
 	var revealing_speed = qs[current_q_number].revealing_speed;
+	stage_time = 34;
 	$(".quiz-window-3").css('display', 'none');
 	$("#back-to-menu-id-2").css('display', 'none');
 	$('.instruction_point').css('opacity', 0);
@@ -67,6 +68,9 @@ $(document).ready(function() {
 });
 
 $(window).load(function(){
+	if (!document.referrer) {
+		window.location.href = "/";
+	}
 	document.getElementById('preload').style.display = "none";
 	$('#preload_block').animate({opacity: 0}, 800);
 	setTimeout(function(){document.getElementById('preload_block').style.display = "none";}, 800);

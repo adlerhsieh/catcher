@@ -26,6 +26,7 @@ var stage_scoring = 0;
 var unit1 = "";
 var unit2 = "";
 var user_current_stage_score = 0;
+var stage_time = 0;
 
 $(window).resize(function(){
 	position_windows();
