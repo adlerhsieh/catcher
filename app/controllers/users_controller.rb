@@ -27,6 +27,12 @@ class UsersController < ApplicationController
     @user = User.all
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to all_users_path
+  end
+
   private
   	def user_params
   		params.require(:user).permit(:name, :password, :password_confirmation, :stage1_score, :stage2_score, :stage3_score)

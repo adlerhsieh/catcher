@@ -17,24 +17,20 @@
 var switch_id = 0;
 var current_opacity = 0;
 var counter = clearInterval(timer);
-var current_q_number = 0;
-var revealing_speed = qs[current_q_number].revealing_speed;
+var current_q_number = 2;
 var change = 0;
 var entering = 1;
 var current_stage = 0;
 var login = false;
 var stage_scoring = 0;
+var current_right_answer_number = 0;
 var unit1 = "";
 var unit2 = "";
 var user_current_stage_score = 0;
-
-$(document).ready(function() {
-
-
-});
+var stage_time = 0;
 
 $(window).resize(function(){
 	position_windows();
-	position_right_answer() ;
+	position_right_answer();
 });
 

@@ -1,11 +1,10 @@
 <!-- Loading Screen-->
-<div id="preload_block" style="background-color: #A4A4A4;opacity: 1; width: 100%; height: 100%; position: absolute;">
-<div class="preload_text" style="margin-left: auto; margin-right: auto; margin-top: 200px; background-color: white; width: 200px; height: 50px; font-size: 20px; border-radius: 10px; text-align: center; padding-top: 10px;">讀取中...</div>
-</div>
+<div id="preload_block"><div class="preload_text">讀取中...</div></div>
 
 <div class="everything">
+<div class="btn btn-primary btn-lg" id="continue-in-frame" onclick="pause_switch()">繼續</div>
+<%= link_to "回主選單", menu_path, :class => "back-to-menu btn btn-primary btn-lg", :id => "back-to-menu-id" %>
 
-<%= link_to "回主選單", menu_path, :class => "back-to-menu btn btn-success btn-lg", :id => "back-to-menu-id" %>
 <div class="btn btn-success btn-lg" id="back-to-menu-id-2">繼續</div>
 <div class="quiz-window-2" id="quiz-window-2-id"></div>
 <div class="quiz-window" id="quiz-window-1-id"></div>
@@ -36,6 +35,8 @@
 
 <script>
 $(document).ready(function() {
+	var revealing_speed = qs[current_q_number].revealing_speed;
+	stage_time = 55;
 	$(".quiz-window-3").css('display', 'none');
 	$("#back-to-menu-id-2").css('display', 'none');
 	$('#stage_score').css('opacity', 0);
@@ -64,6 +65,7 @@ $(window).load(function(){
 	$('#stage_score').animate({opacity:1}, 1000);
 	position_windows();
 	change_quiz();
+	console.log(qs);
 });
 
 

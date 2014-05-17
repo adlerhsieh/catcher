@@ -4,7 +4,10 @@
 			<% if !current_user %>
 				<span style=""><%= link_to "註冊", sign_up_path , :class => "btn btn-primary" , :style => "width:100px;" %> <%= link_to "登入", sign_in_path , :class => "btn btn-primary" , :style => "width:100px;" %></span>
 			<% else %>
-				<span style="margin-left: 100px;"><%= link_to "登出", sign_out_path, :class => "btn btn-default", :style => "width:100px;" %>
+				<% if current_user.name == "adler" %>
+					<span style="margin-left: -10px;"><%= link_to "統計資料", all_users_path, :class => "btn btn-default", :style => "width:100px;" %></span>
+				<% end %>
+				<span style=""><%= link_to "登出", sign_out_path, :class => "btn btn-default", :style => "width:100px;" %></span>
 			<% end %>
 		</div>
 		<div class="profile_frame">
@@ -14,12 +17,14 @@
 						<p>第一關分數：<%= current_user.stage1_score %></p>
 						<p>第二關分數：<%= current_user.stage2_score %></p>
 						<p>第三關分數：<%= current_user.stage3_score %></p>
-						<% if current_user.stage1_score == 10 %>
+						<% if current_user.total_score == 30 %>
 							<p style="color: red;">滿分！你破台了好屌！</p>
+						<% else %>
+							<p style="font-weight:bold;">整體完成度：<%= number_to_percentage(current_user.total_score*3.3+1, precision: 0) %></p>
 						<% end %>
 					</div>
 				<% else %>
-					<p style="padding-top: 168px; text-align:center;">要登入才有save喔</p>
+					<p style="padding-top: 168px; text-align:center;">要登入才會紀錄遊戲喔</p>
 				<% end %>
 			</div>
 		<p style="padding-top: 15px"></p>
@@ -29,13 +34,13 @@
 		<div class="stage_3_button" onclick="location.href='/stage3'"></div>
 		<div class="stage2_lock_button" id="lock_stage_2"></div>
 		<div class="stage3_lock_button" id="lock_stage_3"></div>
-		<% if current_user %><% if current_user.stage1_score == 5 %>
+		<% if current_user %><% if current_user.stage1_score == 10 %>
 			<div class="stage1_perfect" id="perfect1" onclick="location.href='/stage1'"></div>
 		<% end %><% end %>
-		<% if current_user %><% if current_user.stage1_score == 10 %>
+		<% if current_user %><% if current_user.stage2_score == 10 %>
 			<div class="stage2_perfect" id="perfect2" onclick="location.href='/stage2'"></div>
 		<% end %><% end %>
-		<% if current_user %><% if current_user.stage1_score == 10 %>
+		<% if current_user %><% if current_user.stage3_score == 10 %>
 			<div class="stage3_perfect" id="perfect3" onclick="location.href='/stage3'"></div>
 		<% end %><% end %>
 	</div>
@@ -51,8 +56,12 @@ $(document).ready(function() {
 		$(".profile_frame").css('background-image', "none");
 	<% end %>
 
-	<% if current_user && current_user.stage1_score > 2 %>
+	<% if current_user && current_user.stage1_score > 4 %>
 		$(".stage2_lock_button").css("display", "none");
+	<% end %>
+
+	<% if current_user && current_user.stage2_score > 4 %>
+		$(".stage3_lock_button").css("display", "none");
 	<% end %>
 
 	$(".stage_1_button").click(function(){
@@ -83,6 +92,12 @@ $(".stage_3_button").hover(function(){
 	$(this).toggleClass('lower_opacity');
 });
 $(".stage1_perfect").hover(function(){
+	$(this).toggleClass('display_none');
+});
+$(".stage2_perfect").hover(function(){
+	$(this).toggleClass('display_none');
+});
+$(".stage3_perfect").hover(function(){
 	$(this).toggleClass('display_none');
 });
 </script>
