@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	validates :name, presence: true, length: { minimum: 3 }, uniqueness: true, :if => :already_sign_up?
 	validates :password, length: { minimum: 3, maximum: 12 }, :if => :already_sign_up?
 	validates :password_confirmation, presence: true, :if => :already_sign_up?
-	#has_secure_password	if :already_sign_up?
+	validates_confirmation_of :password, :if => :already_sign_up?
 
 	def password_digest
 		if password.present?

@@ -3,11 +3,11 @@ function correct_answer() {
 	stage_scoring = stage_scoring + 1;
 	current_right_answer_number = 0;
 	$(".quiz-window-2").css('opacity', 1);
-	//if the q is in section 1 or 2 then draw a border for right answer
+	//如果答案是第一或第二大關的題目組，都在旁邊畫框表示答對
 	if (qs[current_q_number].backgroundImage.indexOf('_') == -1) {
 		$('.right_answer').css('border', '5px solid yellow');
 	} else {
-		//unbind adding right answer function
+		//規定答案只能按一次，按過一次以後就把function拔掉
 		$('.right_answer_multiple').unbind('click', adding_correct_answer);
 	}
 	$('#stage_score').text("得分：" + stage_scoring);
@@ -15,24 +15,30 @@ function correct_answer() {
 	$(".quiz-window-2").unbind('click' , wrong_answer);
 	$('.correct').css("display", "block");
 	$('#pause').attr('disabled', true);
-	//check if this is stage 3, if yes, the timer will not stop
+	//如果是在stage 3 答題，那時間就不會停止
 	if (window.location.pathname != '/stage3') {
 		clearInterval(counter);
 		$('.time-bar').animate({width: "340px"}, 800);
+	}
+	//如果第三關已經答過10題，就把時間倒數暫停
+	if (window.location.pathname == '/stage3' && current_q_number == 10) {
+		clearInterval(counter);
 	}
 	setTimeout(function(){change_quiz()}, 1000);
 };
 
 function wrong_answer() {
-	//show_mouse_position();
 	$(".right_answer").unbind('click' , correct_answer);
 	$(".quiz-window-2").unbind('click' , wrong_answer);
 	$('.wrong').css("display", "block");
 	$('#pause').attr('disabled', true);
-	//check if this is stage 3, if yes, the timer will not stop
+	//如果是在stage 3 答題，那時間就不會停止
 	if (window.location.pathname != '/stage3') {
 		clearInterval(counter);
 		$('.time-bar').animate({width: "340px"}, 800);
+	} else if (current_q_number == 10) {
+		//如果是在第三大關且答完第10題，則把時間暫停
+		clearInterval(counter);
 	}
 	if (qs[current_q_number].backgroundImage.indexOf('_') != -1) {
 		$('.right_answer_multiple').unbind('click', adding_correct_answer);
@@ -59,12 +65,15 @@ function adding_correct_answer() {
 function timer() {
 	$(".time-bar").animate({width: "-=1"}, 0);
 	//答案逐漸顯露出來
-	$(".quiz-window-2").animate({opacity: revealing_speed}, 0);
+	//前兩關照一般速度，第三關顯露較快
+	if (window.location.pathname == "/stage3") {
+		$(".quiz-window-2").animate({opacity: "+=0.015"}, 0);
+	} else {
+		$(".quiz-window-2").animate({opacity: revealing_speed}, 0);
+	}
 	if ($(".time-bar").width() < 1) {
 		time_up();
-	} else {
-		$(".time-bar").css('opacity', 1);
-	};
+	}
 };
 
 function time_up() {
