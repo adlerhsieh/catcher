@@ -1,5 +1,5 @@
 <!-- Loading Screen-->
-<div id="preload_block"><div class="preload_text">讀取中...</div></div>
+<div id="preload_block" style="	background-color: #A4A4A4;opacity: 1;width: 100%;height: 100%;position: absolute;"><div class="preload_text" style="margin-left: auto; margin-right: auto; margin-top: 200px; background-color: white; width: 200px; height: 50px; font-size: 20px; border-radius: 10px; text-align: center; padding-top: 10px;">讀取中...</div></div>
 
 <div class="everything">
 <div class="btn btn-primary btn-lg" id="continue-in-frame" onclick="pause_switch()">繼續</div>
@@ -22,7 +22,7 @@
 <p style="text-align:center; color: red">注意：未註冊用戶的遊戲紀錄不會保留，請<%= link_to "登入", sign_in_path %> 或 <%= link_to "註冊", sign_up_path %></p>
 <% end %>
 </div>
-<div class="secret_form">
+<div class="secret_for">
 	<% if current_user %>
 		<%= form_for @user do |t| %>
 			<p><%= t.label :stage2_score %><%= t.text_field :stage2_score %></p>

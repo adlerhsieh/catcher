@@ -72,13 +72,15 @@ $(document).ready(function() {
 			$(".stage2_lock_button").css('display', 'none');
 			$(".stage3_lock_button").css('display', 'none');
 			$(this).css('display', 'none');
-			$('.instruction').bind('click', link_to_stage1);
+			$('.instruction').bind('click', function(){window.location.href="/stage1";});
 		<% else %>
 			window.location.href = "/stage1";
 		<% end %>
 	});
 
 	$(".stage_3_button").click(function(){
+			$('.stage1_perfect').css("display", "none");
+			$('.stage2_perfect').css("display", "none");
 			$(".instruction").css("display", "static");
 			$(".instruction").css("background-image", "url('/assets/instruction2.jpg')");
 			$(".stage_1_button").css('display', 'none');
@@ -87,7 +89,7 @@ $(document).ready(function() {
 			$(".stage2_lock_button").css('display', 'none');
 			$(".stage3_lock_button").css('display', 'none');
 			$(this).css('display', 'none');
-			$('.instruction').bind('click', link_to_stage3);
+			$('.instruction').bind('click', function(){window.location.href="/stage3";});
 	});
 });
 
