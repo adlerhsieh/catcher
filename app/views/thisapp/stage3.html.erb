@@ -40,7 +40,7 @@
 <script>
 $(document).ready(function() {
 	var revealing_speed = qs[current_q_number].revealing_speed;
-	stage_time = 34;
+	stage_time = 90;
 	$(".quiz-window-3").css('display', 'none');
 	$("#back-to-menu-id-2").css('display', 'none');
 	$('.instruction_point').css('opacity', 0);
@@ -60,19 +60,15 @@ $(document).ready(function() {
 				window.location.href = "/";		
 		<% end %>
 	});
-
-	$(document).click(function(){
-		document.getElementById('instruction_point_id').style.display = "none";
-	});
 });
 
 $(window).load(function(){
-	
 	document.getElementById('preload').style.display = "none";
 	$('#preload_block').animate({opacity: 0}, 800);
 	setTimeout(function(){document.getElementById('preload_block').style.display = "none";}, 800);
 	$('.instruction_point').animate({opacity:1}, 1000);
 	$('#stage_score').animate({opacity:1}, 1000);
+	counter = setInterval(timer, stage_time);
 	position_windows();
 	change_quiz();
 });
