@@ -20,7 +20,12 @@
 						<% if current_user.total_score == 30 %>
 							<p style="color: red;">滿分！你破台了好屌！</p>
 						<% else %>
-							<p style="font-weight:bold;">整體完成度：<%= number_to_percentage(current_user.total_score*3.3+1, precision: 0) %></p>
+							<p style="font-weight:bold;">整體完成度：
+								<% if current_user.total_score == 0%>
+									0%
+								<% else %>
+									<%= number_to_percentage(current_user.total_score*3.3+1, precision: 0) %></p>
+								<% end %>
 						<% end %>
 					</div>
 				<% else %>
