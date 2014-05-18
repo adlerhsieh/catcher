@@ -21,7 +21,7 @@
 <p style="text-align:center; color: red">注意：未註冊用戶的遊戲紀錄不會保留，請<%= link_to "登入", sign_in_path %> 或 <%= link_to "註冊", sign_up_path %></p>
 <% end %>
 </div>
-<div class="secret_for">
+<div class="secret_form">
 	<% if current_user %>
 		<%= form_for @user do |t| %>
 			<p><%= t.label :stage1_score %><%= t.text_field :stage1_score %></p>

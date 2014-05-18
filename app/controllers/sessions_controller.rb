@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   		session[:user_id] = user.id
   		redirect_to menu_path
   	else
-  		flash[:notice] = "Invalid name or password"
+  		flash.now[:notice] = "Invalid name or password"
   		render 'new'
   	end
   end

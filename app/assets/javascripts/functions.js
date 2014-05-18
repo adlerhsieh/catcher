@@ -67,7 +67,7 @@ function timer() {
 	//答案逐漸顯露出來
 	//前兩關照一般速度，第三關顯露較快
 	if (window.location.pathname == "/stage3") {
-		$(".quiz-window-2").animate({opacity: "+=0.015"}, 0);
+		$(".quiz-window-2").animate({opacity: "+=0.03"}, 0);
 	} else {
 		$(".quiz-window-2").animate({opacity: revealing_speed}, 0);
 	}
@@ -243,3 +243,11 @@ function change_quiz() {
 		$("#back-to-menu-id-2").css('display', 'static');
 	};
 };
+
+function link_to_stage1() {
+	window.location.href="/stage1";
+}
+
+function link_to_stage3() {
+	window.location.href="/stage3";
+}

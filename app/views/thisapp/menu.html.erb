@@ -31,7 +31,7 @@
 		<div class="instruction"></div>
 		<div class="stage_1_button" onclick=""></div>
 		<div class="stage_2_button" onclick="location.href='/stage2'"></div>
-		<div class="stage_3_button" onclick="location.href='/stage3'"></div>
+		<div class="stage_3_button" onclick=""></div>
 		<div class="stage2_lock_button" id="lock_stage_2"></div>
 		<div class="stage3_lock_button" id="lock_stage_3"></div>
 		<% if current_user %><% if current_user.stage1_score == 10 %>
@@ -72,13 +72,22 @@ $(document).ready(function() {
 			$(".stage2_lock_button").css('display', 'none');
 			$(".stage3_lock_button").css('display', 'none');
 			$(this).css('display', 'none');
+			$('.instruction').bind('click', link_to_stage1);
 		<% else %>
 			window.location.href = "/stage1";
 		<% end %>
 	});
 
-	$(".instruction").click(function(){
-		window.location.href = "/stage1";
+	$(".stage_3_button").click(function(){
+			$(".instruction").css("display", "static");
+			$(".instruction").css("background-image", "url('/assets/instruction2.jpg')");
+			$(".stage_1_button").css('display', 'none');
+			$(".stage_2_button").css('display', 'none');
+			$(".stage_3_button").css('display', 'none');
+			$(".stage2_lock_button").css('display', 'none');
+			$(".stage3_lock_button").css('display', 'none');
+			$(this).css('display', 'none');
+			$('.instruction').bind('click', link_to_stage3);
 	});
 });
 
