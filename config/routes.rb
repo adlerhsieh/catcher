@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'stage2' => 'thisapp#stage2', as: 'stage2'
   get 'stage3' => 'thisapp#stage3', as: 'stage3'
   get 'all_users' => 'users#all', as: 'all_users'
-  root to: "thisapp#menu"
+  root to: "thisapp#index"
   resources :users
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.
