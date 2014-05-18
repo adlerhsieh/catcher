@@ -193,6 +193,13 @@ function change_quiz() {
 		$('.quiz-window').css('background-image', qs[current_q_number].backgroundImage);
 		$(".right_answer_multiple").css('border', 'none');
 		$(".right_answer_multiple").css('display', 'none');
+		$('.quiz-window-2').css('background-image', qs[current_q_number].rightAnswer);
+		$('#pause').attr('disabled', false);
+		$(".quiz-window-2").bind('click' , wrong_answer);
+		$('.correct').css("display", "none");
+		$('.wrong').css("display", "none");
+		position_right_answer();
+		revealing_speed = qs[current_q_number].revealing_speed;
 		//check if the q is from section 3
 		if (qs[current_q_number].backgroundImage.indexOf('_') != -1) {
 			$('.quiz-window-2').css('opacity', '1');
@@ -202,18 +209,12 @@ function change_quiz() {
 			$(".right_answer").bind('click' , correct_answer);
 			$('.quiz-window-2').css('opacity', '0');
 		}
-		$('.quiz-window-2').css('background-image', qs[current_q_number].rightAnswer);
-		$('#pause').attr('disabled', false);
-		$(".quiz-window-2").bind('click' , wrong_answer);
-		$('.correct').css("display", "none");
-		$('.wrong').css("display", "none");
-		position_right_answer();
-		revealing_speed = qs[current_q_number].revealing_speed;
 		//check if this is stage 3, if yes, the timer will not reactivate
 		//The first activation of stage 3 timer is in stage3.html.erb
 		if (window.location.pathname != '/stage3') {
 			counter = setInterval(timer, stage_time);
 		}
+		console.log(revealing_speed);
 	} else {
 		$('.quiz-window').css('opacity', '0');
 		$('.quiz-window-2').css('opacity', '0');
