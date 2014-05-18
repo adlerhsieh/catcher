@@ -28,16 +28,16 @@ var r1 = { "marginLeft": 0 , "marginTop": 0, "width": 0, "height": 0, "right_ans
 		"right_answer5_marginLeft": 505, "right_answer5_marginTop": -107, "right_answer5_width": 95, "right_answer5_height": 107,
 		"revealing_speed": "+=.0055", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/1_1.jpg")', "rightAnswer": 'url("/assets/1_2.png")'};
 var r2 = { "marginLeft": 0 , "marginTop": 0, "width": 0, "height": 0,  "right_answer_number": 4,
-		"right_answer1_marginLeft": 100, "right_answer1_marginTop": 100, "right_answer1_width": 50, "right_answer1_height": 50,
-		"right_answer2_marginLeft": 100, "right_answer2_marginTop": 100, "right_answer2_width": 100, "right_answer2_height": 100,
-		"right_answer3_marginLeft": 100, "right_answer3_marginTop": 100, "right_answer3_width": 100, "right_answer3_height": 100,
-		"right_answer4_marginLeft": 100, "right_answer4_marginTop": 100, "right_answer4_width": 100, "right_answer4_height": 100,
+		"right_answer1_marginLeft": 90, "right_answer1_marginTop": -388, "right_answer1_width": 60, "right_answer1_height": 90,
+		"right_answer2_marginLeft": 100, "right_answer2_marginTop": -240, "right_answer2_width": 80, "right_answer2_height": 60,
+		"right_answer3_marginLeft": 260, "right_answer3_marginTop": -380, "right_answer3_width": 80, "right_answer3_height": 120,
+		"right_answer4_marginLeft": 460, "right_answer4_marginTop": -233, "right_answer4_width": 50, "right_answer4_height": 50,
 		"revealing_speed": "+=.0055", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/2_1.jpg")', "rightAnswer": 'url("/assets/2_2.png")'};
 var r3 = { "marginLeft": 0 , "marginTop": 0, "width": 0, "height": 0,  "right_answer_number": 4,
-		"right_answer1_marginLeft": 100, "right_answer1_marginTop": 100, "right_answer1_width": 50, "right_answer1_height": 50,
-		"right_answer2_marginLeft": 100, "right_answer2_marginTop": 100, "right_answer2_width": 100, "right_answer2_height": 100,
-		"right_answer3_marginLeft": 100, "right_answer3_marginTop": 100, "right_answer3_width": 100, "right_answer3_height": 100,
-		"right_answer4_marginLeft": 100, "right_answer4_marginTop": 100, "right_answer4_width": 100, "right_answer4_height": 100,
+		"right_answer1_marginLeft": 0, "right_answer1_marginTop": -400, "right_answer1_width": 80, "right_answer1_height": 100,
+		"right_answer2_marginLeft": 60, "right_answer2_marginTop": -200, "right_answer2_width": 120, "right_answer2_height": 155,
+		"right_answer3_marginLeft": 290, "right_answer3_marginTop": -360, "right_answer3_width": 120, "right_answer3_height": 110,
+		"right_answer4_marginLeft": 410, "right_answer4_marginTop": -240, "right_answer4_width": 150, "right_answer4_height": 190,
 		"revealing_speed": "+=.0055", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/3_1.jpg")', "rightAnswer": 'url("/assets/3_2.png")'};
 
 
@@ -70,11 +70,10 @@ if (window.location.pathname == '/stage1') {
 	//目前以題目3,6,9出現r系列題目，但算式有誤，仍需查證
 	for (var a = 0; a < 10 ; a++){
 		if (arr3InPosition >= 1) {
-			//var randomNumber = Math.floor(Math.random() * arr3.length);
-			//var pushToArray = arr3[randomNumber];
-			//arr3.splice(randomNumber,1);
-			//qs.push(pushToArray);
-			qs.push(arr3[1]);
+			var randomNumber = Math.floor(Math.random() * arr3.length);
+			var pushToArray = arr3[randomNumber];
+			arr3.splice(randomNumber,1);
+			qs.push(pushToArray);
 			arr3InPosition = 0;
 		} else {
 			var randomNumber = Math.floor(Math.random() * arr1.length);

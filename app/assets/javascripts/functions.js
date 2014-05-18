@@ -3,6 +3,10 @@ function correct_answer() {
 	stage_scoring = stage_scoring + 1;
 	$('#stage_score').text("得分：" + stage_scoring);
 	$(".quiz-window-2").css('opacity', 1);
+	//if the q is in section 1 or 2 then draw a border for right answer
+	if (qs[current_q_number].backgroundImage.indexOf('_') == -1) {
+		$('.right_answer').css('border', '5px solid yellow');
+	}
 	$(".right_answer").unbind('click' , correct_answer);
 	$(".quiz-window-2").unbind('click' , wrong_answer);
 	$('.correct').css("display", "block");
@@ -39,7 +43,8 @@ function time_up() {
 function adding_correct_answer() {
 	$(this).unbind('click', adding_correct_answer);
 	$(this).css('border', '5px solid yellow');
-	if (current_right_answer_number < 4 ) {
+	//minus 1 because of the "if" runs earlier than the plus
+	if (current_right_answer_number < qs[current_q_number].right_answer_number -1 ) {
 		current_right_answer_number = current_right_answer_number + 1;
 	} else {
 		correct_answer();
@@ -81,7 +86,7 @@ function position_right_answer() {
 
 //時間棒條
 function timer() {
-	$(".time-bar").animate({width: "-=0"}, 0);
+	$(".time-bar").animate({width: "-=1"}, 0);
 	//答案逐漸顯露出來
 	$(".quiz-window-2").animate({opacity: revealing_speed}, 0);
 	if ($(".time-bar").width() < 1) {
@@ -159,6 +164,7 @@ function pause_switch() {
 //}
 
 function change_quiz() {
+	$('.right_answer').css('border', 'none');
 	//check if user has answered 10 qs
 	if (current_q_number < 10) {
 		current_q_number = current_q_number + 1;
@@ -192,7 +198,11 @@ function change_quiz() {
 			if (user_current_stage_score > 4) {
 				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
 			} else if (stage_scoring > 4) {
-				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_win.png")');
+				if (window.location.pathname == '/stage3') {
+					$(".quiz-window-3").css('background-image', 'url("/assets/stage_done.png")');
+				} else {
+					$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_win.png")');
+				}
 			} else {
 				$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_lose.png")');
 			};
