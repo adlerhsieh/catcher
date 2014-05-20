@@ -27,6 +27,7 @@ en:
         user:
           attributes:
             name:
+              taken: "已經有人註冊此姓名"
               blank: "姓名欄位未填"
               too_short: "姓名至少要3個字以上"
             password:

@@ -36,6 +36,9 @@
 
 <script>
 $(document).ready(function() {
+	if (!document.referrer) {
+		window.location.href = "/";
+	}
 	var revealing_speed = qs[current_q_number].revealing_speed;
 	stage_time = 34;
 	$(".quiz-window-3").css('display', 'none');
@@ -57,7 +60,7 @@ $(document).ready(function() {
 			if (stage_scoring > 4) {
 				window.location.href = "/stage3";
 			} else {
-				window.location.href = "/";
+				window.location.href = "/menu";
 			};			
 		<% end %>
 	});
@@ -68,9 +71,6 @@ $(document).ready(function() {
 });
 
 $(window).load(function(){
-	if (!document.referrer) {
-		window.location.href = "/";
-	}
 	document.getElementById('preload').style.display = "none";
 	$('#preload_block').animate({opacity: 0}, 800);
 	setTimeout(function(){document.getElementById('preload_block').style.display = "none";}, 800);

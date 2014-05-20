@@ -16,7 +16,7 @@ var q4 = { "marginLeft": 365 , "marginTop": -135, "width": 58, "height": 70, "re
 var q5 = { "marginLeft": 195 , "marginTop": -340, "width": 35, "height": 55, "revealing_speed": "+=.005", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/5-1.jpg")', "rightAnswer": 'url("/assets/5-2.png")'};
 var q6 = { "marginLeft": 0 , "marginTop": -336, "width": 180, "height": 336, "revealing_speed": "+=.008", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/6-1.jpg")', "rightAnswer": 'url("/assets/6-2.png")'};
 var q7 = { "marginLeft": 270 , "marginTop": -175, "width": 60, "height": 80, "revealing_speed": "+=.005", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/7-1.jpg")', "rightAnswer": 'url("/assets/7-2.png")'};
-var q8 = { "marginLeft": 118 , "marginTop": -155, "width": 45, "height": 45, "revealing_speed": "+=.005", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/8-1.jpg")', "rightAnswer": 'url("/assets/8-2.png")'};
+var q8 = { "marginLeft": 113 , "marginTop": -150, "width": 50, "height": 50, "revealing_speed": "+=.005", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/8-1.jpg")', "rightAnswer": 'url("/assets/8-2.png")'};
 var q9 = { "marginLeft": 210 , "marginTop": -225, "width": 130, "height": 125, "revealing_speed": "+=.005", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/9-1.jpg")', "rightAnswer": 'url("/assets/9-2.png")'};
 var q10 = { "marginLeft": 0 , "marginTop": -125, "width": 60, "height": 125, "revealing_speed": "+=.003", "correct_left_modifier": 0, "backgroundImage": 'url("/assets/10-1.jpg")', "rightAnswer": 'url("/assets/10-2.png")'};
 

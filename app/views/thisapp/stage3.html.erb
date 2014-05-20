@@ -39,6 +39,9 @@
 
 <script>
 $(document).ready(function() {
+	if (!document.referrer) {
+		window.location.href = "/";
+	}
 	var revealing_speed = qs[current_q_number].revealing_speed;
 	stage_time = 210;
 	$(".quiz-window-3").css('display', 'none');
@@ -57,7 +60,7 @@ $(document).ready(function() {
 			};
 			document.getElementById('submit_score').click();
 		<% else %>
-				window.location.href = "/";		
+				window.location.href = "/menu";		
 		<% end %>
 	});
 });
