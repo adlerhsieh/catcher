@@ -18,7 +18,7 @@
 						<p>第二關分數：<%= current_user.stage2_score %></p>
 						<p>第三關分數：<%= current_user.stage3_score %></p>
 						<% if current_user.total_score == 30 %>
-							<p style="color: red;">滿分！你破台了好屌！</p>
+							<p style="color: red;">滿分！你破台了！</p>
 						<% else %>
 							<p style="font-weight:bold;">整體完成度：
 								<% if current_user.total_score == 0%>
