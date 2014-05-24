@@ -7,13 +7,13 @@
   <%= csrf_meta_tags %>
   <link rel="shortcut icon" href="/favicon.ico" />
   <meta property="og:title" content="尋找怪人 - 小遊戲">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+  <meta property="og:url" content="http://catch-you.herokuapp.com">
+  <meta property="og:image" content="http://catch-you.herokuapp.com/assets/poster_v2.jpg">
   <meta property="og:description" content="">
 </head>
 <body>
+<!--For FB-->
 <div id="fb-root"></div>
-<!--For FB plugin-->
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -35,8 +35,6 @@
 <%= yield %>
 
 </p>
-<div class="fb-share-button" data-href="http://catch-you.herokuapp.com" data-type="button_count" style="display: block; margin-left: 50%;"></div>
-<hr>
-<div style="display: block; position: relative; margin-left:100px;"><iframe src="https://docs.google.com/forms/d/152sAxwCi6Z3M9gOx7nS6AhvKkoL3Jk-n7TgN3HVj1Ns/viewform?embedded=true" width="700" height="1000" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe></div>
+<div class="fb-like" style="margin-left: 40%" data-href="http://catch-you.herokuapp.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 </body>
 </html>

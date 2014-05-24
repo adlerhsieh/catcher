@@ -112,6 +112,12 @@ body {
 	//opacity: 0.5;
 }
 
+.right_answer_multiple {
+	//background-color: red;
+	//opacity: 0.5;
+	position: absolute;
+}
+
 .correct {
 	background-image: image-url('correct.png');
 	width: 412px;
@@ -312,8 +318,3 @@ body {
 	padding-top: 10px;
 }
 
-.right_answer_multiple {
-	//background-color: red;
-	//opacity: 0.5;
-	position: absolute;
-}

@@ -117,11 +117,27 @@ function position_right_answer() {
 		$("#right_answer_id_4").css('marginTop' , qs[current_q_number].right_answer4_marginTop );
 		$("#right_answer_id_4").css('width' , qs[current_q_number].right_answer4_width );
 		$("#right_answer_id_4").css('height' , qs[current_q_number].right_answer4_height );
+		if (qs[current_q_number].right_answer_number > 3) {
+			$("#right_answer_id_4").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + qs[current_q_number].right_answer4_marginLeft );
+			$("#right_answer_id_4").css('marginTop' , qs[current_q_number].right_answer4_marginTop );
+			$("#right_answer_id_4").css('width' , qs[current_q_number].right_answer4_width );
+			$("#right_answer_id_4").css('height' , qs[current_q_number].right_answer4_height );
+		} else {
+			$("#right_answer_id_4").css('marginLeft' , '0');
+			$("#right_answer_id_4").css('marginTop' , '0');
+			$("#right_answer_id_4").css('width' , '0' );
+			$("#right_answer_id_4").css('height' , '0' );
+		}
 		if (qs[current_q_number].right_answer_number > 4) {
 			$("#right_answer_id_5").css('marginLeft' , parseInt($(".quiz-window").css('marginLeft')) + qs[current_q_number].right_answer5_marginLeft );
 			$("#right_answer_id_5").css('marginTop' , qs[current_q_number].right_answer5_marginTop );
 			$("#right_answer_id_5").css('width' , qs[current_q_number].right_answer5_width );
 			$("#right_answer_id_5").css('height' , qs[current_q_number].right_answer5_height );
+		} else {
+			$("#right_answer_id_5").css('marginLeft' , '0');
+			$("#right_answer_id_5").css('marginTop' , '0');
+			$("#right_answer_id_5").css('width' , '0' );
+			$("#right_answer_id_5").css('height' , '0' );
 		}
 		$(".right_answer").css('marginLeft' , 0 );
 		$(".right_answer").css('marginTop' , 0 );
@@ -239,6 +255,7 @@ function change_quiz() {
 		} else {
 			$(".quiz-window-3").css('background-image', 'url("/assets/stage_done_lose.png")');
 		}
+		$(".right_answer_multiple").css('display', 'none');
 		$(".back-to-menu").css('display', 'none');
 		$("#back-to-menu-id-2").css('display', 'static');
 	};
